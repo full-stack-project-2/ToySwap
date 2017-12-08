@@ -11,6 +11,7 @@ var bodyParser = require("body-parser");
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
+app.use(express.static(__dirname + '/public'));
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -22,13 +23,26 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
-app.use(express.static("public"));
+// app.use(express.static("public"));
+
+
+
+// Set Handlebars.
+const exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({
+    defaultLayout: "main"
+}));
+app.set("view engine", "handlebars");
+
+
+
 
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
-require("./routes/author-api-routes.js")(app);
-require("./routes/post-api-routes.js")(app);
+// require("./routes/user-api-routes.js")(app);
+require("./routes/inventory-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
