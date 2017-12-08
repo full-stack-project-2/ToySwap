@@ -1,16 +1,42 @@
-module.exports = function(sequelize, DataTypes) {
-  var Author = sequelize.define("Author", {
-    // Giving the Author model a name of type STRING
-    name: DataTypes.STRING
+module.exports = function (sequelize, DataTypes) {
+  var User = sequelize.define("User", {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      is: ["^[a-z]+$", 'i'],
+      validate: {
+        len: [1]
+      }
+    },
+    cityState: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [3]
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      isEmail: true,
+      validate: {
+        len: [3]
+      }
+    },
   });
 
-  Author.associate = function(models) {
+  User.associate = function (models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
-    Author.hasMany(models.Post, {
+    User.hasMany(models.Inventory, {
       onDelete: "cascade"
     });
   };
 
-  return Author;
+  return User;
 };
+
+// User
+// City/ State
+// email
+// // Wish list /UPDATE Tbl SET Col = Col + 'suffix' WHERE ...
