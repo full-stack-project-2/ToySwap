@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "dariell",
+    "username": "alex",
     "password": "password",
-    "database": "toyswap",
+    "database": "bamazon",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
