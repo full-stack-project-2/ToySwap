@@ -9,8 +9,6 @@ module.exports = function (app) {
   let runner = new walmart(); //creates a new object
   let callbackFnc = function (data) { //callback function to fetch data
     result = data;
-    console.log("PRICEEEEEEEE : " + result.price);
-
     result.forEach(function (toy) {
       db.Inventory.create({
         title: toy.name,
@@ -20,7 +18,6 @@ module.exports = function (app) {
         url: toy.image,
         description: toy.description
       }).then(function (dbToys) {
-        console.log("Good Job");
       });
     })
 
