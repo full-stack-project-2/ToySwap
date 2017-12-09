@@ -1,0 +1,174 @@
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 my-3">
+            <header class="input-group">
+                <span class="text-white bg-info p-2 rounded-left">Search</span>
+                <input type="text" class="form-control" placeholder="keyword" id="searchBox">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="button" id="searchBtn">
+                        <img id="sIcon" src="assets/img/searchIcon.png" alt="Img not found.">
+                    </button>
+                </span>
+            </header>
+        </div>
+        <div class="col-md-2">
+            <div class="d-flex align-items-end align-self-stretch flex-row-reverse" id="loginDiv">
+                <a href="*">Login</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id='imgCont'>
+                            <img src={{url}} class='viewImg' alt="Img not found.">
+                        </div>
+                        <div>
+                            <div>
+                                <img src="assets/img/starOff.png" id="starIcon" alt="Img not found" class="mb-2">
+                                <span id='wList' class="pl-2">Add to Watch list.</span>
+                            </div>
+                            <span>5 </span>
+                            <span>people watching.</span>
+                        </div>
+                    </div>
+                {{!-- {{#each inventory}}
+			  	{{#unless this.devoured}}
+				<div class="col-xs-9 text-center">
+					<pre>{{this.id}}. {{this.burger_name}}
+					</pre>
+				  		<!-- {{this.Date}} -->
+				</div>
+				<div class="col-xs-3 text-center">
+					<form method="POST" action="/burgers/update?_method=PUT" class="button-size">
+						<input input type="hidden" type="text" name="burger_id" value={{this.id}}><br>
+						<button type="submit" class="btn btn-default">Devour it!</button>
+					</form>
+				</div>
+				{{/unless}}
+			  {{/each}} --}}
+			</div>
+		</div>
+		<div class="col-xs-6 text-center" class="task">
+
+            {{!-- This will hopefully print out each toy in the inventory from this specific User (referenced in the User ID)
+            If the item's is equal to the toy ID param that we got from the $.get request in the browser after clicking on the button, then we render that item, else we render the rest of the items (in our case this goes in the section where "Other products from this owner") --}}
+			  {{#each inventory}}
+			  	{{#if this.UserId === toyID}}
+                  <ul>
+                    <li>{{title}}</li>
+                    <li>{{product_condition}}</li>
+                    <li>{{availability}}</li>
+                    <li>${{price}}</li>
+                    <li>{{url}}</li>
+                    <li>{{description}}</li>
+                </ul>
+				{{/if}}
+                <br>
+                <br>
+                <hr>
+                <ul>
+                    <li>{{title}}</li>
+                    <li>{{product_condition}}</li>
+                    <li>{{availability}}</li>
+                    <li>${{price}}</li>
+                    <li>{{url}}</li>
+                    <li>{{description}}</li>
+                </ul>
+			  {{/each}}
+
+
+
+
+
+
+
+                    <div class="col-md-6 text-left">
+                        <div class="ml-2">
+                            <div class="pl-2 pt-3">
+                                <span id="title">{{title}}</span>
+                            </div>
+                            <hr>
+                            <div class="mb-3">
+                                <!-- Modal -->
+                                <div id="myModal" class="modal">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <p>Some text in the Modal..</p>
+                                        <div>
+                                            <button class="btn btn-success" id='modalOfferBtn'>Offer</button>
+                                            <button class="btn btn-danger" id='modalCancelBtn'>Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- ******** -->
+                                <div class="d-inline-block ml-2">
+                                    <div class="text-right">Item Condition:</div>
+                                    <div class="text-right">Available:</div>
+                                    <div class="text-right">Suggested Retail Price:</div>
+                                </div>
+                                <div class="d-inline-block">
+                                    <div class="text-left ml-2">{{product_condition}}</div>
+                                    <div class="text-left ml-2">{{availability}}</div>
+                                    <div class="text-left ml-2">
+                                        <span>$</span>
+                                        <span>{{price}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="dataContBot" class="pr-3">
+                                <div class="ml-3 mt-2">
+                                    <div class="pt-2 font-weight-bold">Owner Contact Information:</div>
+                                    <hr>
+                                    <div class="d-inline-block">
+                                        <div class="text-right">Name:</div>
+                                        <div class="text-right">City, State:</div>
+                                        <div class="text-right">Email:</div>
+                                    </div>
+                                    <div class="d-inline-block mb-3">
+                                        <div class="text-left ml-2">John Doe</div>
+                                        <div class="text-left ml-2">Newark, NJ</div>
+                                        <div class="text-left ml-2">johndoe@gmail.com</div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="row pb-2">
+                                            <div class="col-md-6">
+                                                <button class="my-1 btn btn-success" id="tradeBtn">Offer Trade</button>
+                                                <button class="my-1 btn btn-info" data-toggle='tooltip' title='Not Available for chat.' data-placement="top" id="chatBtn">Chat</button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a href="#">
+                                                    <img src="assets/img/questionIcon.png" id="qIcon" alt="Img not found." class="mt-2">
+                                                    <span>Ask a Question</span>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-6 text-center">
+                <fieldset>
+                    <legend id="idLegend">Description/Additional Info</legend>
+                    <p>{{description}}</p>
+                </fieldset>
+            </div>
+            <div id='chatDiv' class="mb-3 ml-1">
+                <div id="topDiv">
+                    <div id="msgDiv" class="mr-4 ml-3 pl-1 mt-1 text-left"></div>
+                </div>
+                <div id="bottDiv"></div>
+            </div>
+        </div>
+    </div>
+</div>
