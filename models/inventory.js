@@ -47,8 +47,10 @@ module.exports = function(sequelize, DataTypes) {
   //     }
   //   });
   // };
+  // inven = Inventory;
   return Inventory;
 };
+
 
 
 // Title of Item
