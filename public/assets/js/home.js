@@ -19,10 +19,11 @@ $(document).ready(function () {
         };
         // Send an AJAX POST-request with jQuery
         $.post("/toys", newToy).done(function (data) {
-            $.get("/toys", function (data) {
-                // todos = data;
-            });
-            console.log("CONGRATS, you just uploaded your product!");
+            // $.get("/", function (data) {
+            //     // todos = data;
+            // });
+            // console.log("CONGRATS, you just uploaded your product!");
+            window.location.replace("/toys");
         });
         // On success, run the following code
 
