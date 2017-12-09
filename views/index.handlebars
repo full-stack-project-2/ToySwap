@@ -1,12 +1,4 @@
-<div class="container">
-    <div class="heading">
-        <h1 class="text-center">
-            <strong>
-                ToySwap
-            </strong>
-        </h1>
-    </div>
-
+<!--
     <div class="row">
         <div class="col-lg-6">
             <h2>Data from DB</h2>
@@ -23,6 +15,9 @@
             </div>
             {{/each}}
         </div>
+        </div>
+
+
         <div class="col-lg-6 offset-lg-3" id="form">
             <form class="create-form" method="POST" action="/toys">
                 <label for="title">Title of Toy:</label>
@@ -47,5 +42,283 @@
 
             {{!-- <p id="enter-burger">Enter a burger you'd like to eat, then click submit</p> --}}
         </div>
+-->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ToySwap</title>
+    <!--LINKS*********************************--->
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!--Font Link for ToySwap on Parallax-->
+    <link href="https://fonts.googleapis.com/css?family=Suez+One" rel="stylesheet">
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+</head>
+
+<body>
+
+
+    <div class="fixed-action-btn horizontal click-to-toggle">
+        <a class="btn-floating btn-large deep-purple lighten-1">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul>
+            <li>
+                <a class="btn-floating deep-purple lighten-1">
+                    <i class="material-icons">insert_chart</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating deep-purple lighten-1">
+                    <i class="material-icons">format_quote</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating deep-purple lighten-1">
+                    <i class="material-icons">publish</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating deep-purple lighten-1">
+                    <i class="material-icons">attach_file</i>
+                </a>
+            </li>
+        </ul>
     </div>
-</div>
+
+
+
+    <div id="index-banner" class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <br>
+                <br>
+                <h1 id="toyswap-title" class="header center white-text text-lighten-2">ToySwap</h1>
+            </div>
+        </div>
+
+        <div class="parallax">
+            <img src="#" alt="Unsplashed background img 1" style="display: block; transform: translate3d(-50%, 15px, 0px);">
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="section">
+            <div class="col s12 center">
+                <div class="icon-block">
+                    <h2 class="center">
+                        <i class="material-icons">settings</i>
+                    </h2>
+                    <h5 class="center">How ToySwap Works</h5>
+
+                    <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam
+                        pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros
+                        justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget,
+                        bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla
+                        imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam
+                        eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et
+                        ultrices posuere cubilia Curae;</p>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col s12 m6" id="open-buttons">
+                        <a class="waves-effect waves-light btn modal-trigger deep-purple lighten-1" id="register-button" href="#modal1">Register</a>
+
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>Modal Header</h4>
+                                <p>A bunch of text</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6" id="open-buttons">
+                        <!-- Modal Trigger -->
+                        <a class="waves-effect waves-light btn modal-trigger deep-purple lighten-1" id="login-button" href="#modal2">Login</a>
+
+                        <!-- Modal Structure -->
+                        <div id="modal2" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>Login Header</h4>
+                                <p>A bunch of text</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="section">
+
+            <div class="row">
+                <div class="col s12 center">
+
+                    <h4>Toy Div? Put each item in it's own card?</h4>
+                    <!--
+            <h2>Data from DB</h2>
+            {{#each inventory}}
+            <div class="toyDiv">
+                <ul>
+                    <li>{{title}}</li>
+                    <li>{{product_condition}}</li>
+                    <li>{{availability}}</li>
+                    <li>${{price}}</li>
+                    <li>{{url}}</li>
+                    <li>{{description}}</li>
+                </ul>
+            </div>
+            {{/each}}
+        -->
+                    <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam
+                        pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros
+                        justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget,
+                        bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla
+                        imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam
+                        eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et
+                        ultrices posuere cubilia Curae;</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <h4 class="center">Upload an Item!</h4>
+        <div class="row">
+            <form class="col s12 create-form" method="POST" action="/toys">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="title" type="text" class="validate" required="" aria-required="true">
+                        <label for="title">Title</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="product_condition" name="example" type="text" class="validate" required="" aria-required="true">
+                        <label for="condition">Condition</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="availability" name="example" type="number" class="validate" required="" aria-required="true">
+                        <label for="quantity">Quantity</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="price" name="example" type="number" class="validate" required="" aria-required="true">
+                        <label for="price">Retail Price</label>
+                    </div>
+
+
+                    <div class="input-field col s6">
+                        <textarea id="description" class="materialize-textarea validate" name="example" type="text" required="" aria-required="true"></textarea>
+                        <label for="description">Description</label>
+                    </div>
+
+                    <form action="#">
+                        <div class="file-field input-field col s6">
+                            <div class="btn-floating btn-small waves-effect waves-light deep-purple lighten-1">
+                                <i class="material-icons">add</i>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input id="url" class="file-path validate" required="" aria-required="true" type="text">>
+                                <label class="description-label" for="description">Image URL</label>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        <button class="btn waves-effect waves-light deep-purple lighten-1" type="submit" name="action">Submit</button>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <footer class="page-footer teal accent-2">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12" id="group-div">
+                    <h5 class="white-text">Project 2 Group Members</h5>
+                    <ul>
+                        <li>Dariell Vasquez</li>
+                        <li>Alexander Nieves</li>
+                        <li>Yubin Jamora</li>
+                        <li>Conor Nolan</li>
+                    </ul>
+
+                </div>
+
+                <div class="col l6 s12" id="connect-div">
+                    <h5 class="white-text">Connect With Us!</h5>
+                    <ul>
+                        <li>
+                            <a class="white-text" href="#!">Link 1</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">Link 2</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">Link 3</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="#!">Link 4</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="center footer-copyright deep-purple lighten-1">
+            <div class="container" id="footer-toyswap">
+                <a class="white-text" href="https://github.com/full-stack-project-2/full-stack-project-2">ToySwap
+                    <img src="assets/img/github.png" alt="GitHub">
+                </a>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!--  SCRIPTS ************************-->
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="assets/js/toyswap.js"></script>
+    <script src="assets/js/init.js"></script>
+    <script src="assets/js/materialize.js"></script>
+
+    <div class="hiddendiv common"></div>
+    <div class="drag-target" data-sidenav="nav-mobile" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
+
+</body>
+
+</html>
