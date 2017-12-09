@@ -56,16 +56,6 @@ module.exports = function (app) {
       // where: query,
       // include: [db.User]
     }).then(function (dbInventory) {
-      // let inventory = {
-      //   toys: dbInventory
-      // }
-      // let arr = [];
-      // dbInventory.forEach(function(datum){
-      //   arr.push(datum);
-      // })  *** dbInventory[0].dataValues
-
-      // console.log("My arr works :" + arr);
-      // console.log(dbInventory[0].dataValues);
       res.render("index", {
         inventory: dbInventory
       });
