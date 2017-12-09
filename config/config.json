@@ -2,7 +2,7 @@
   "development": {
     "username": "alex",
     "password": "password",
-    "database": "bamazon",
+    "database": "toyswap",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
