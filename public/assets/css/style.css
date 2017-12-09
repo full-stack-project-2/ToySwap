@@ -91,4 +91,12 @@
     cursor: pointer;
 }
 
+#resultDiv {
+    min-height: 400px;
+}
+
+#sortAll:hover, #sortOffers:hover, #sortMessages:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
 
