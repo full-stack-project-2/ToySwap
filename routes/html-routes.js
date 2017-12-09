@@ -13,7 +13,6 @@ module.exports = function (app) {
 
   // index route loads index.handlebars
   app.get("/", function (req, res) {
-    // console.log(walmart);
     res.render("index");
   });
   app.get("/products", function (req, res) { //<-- Just for testing... byAlex    
