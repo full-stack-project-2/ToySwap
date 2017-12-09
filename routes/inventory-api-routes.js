@@ -1,8 +1,33 @@
 var db = require("../models");
-
+const walmart = require("../walmart_api/data"); //requires the constructor
 // Routes
 // =============================================================
-module.exports = function (app) {  
+module.exports = function (app) {
+
+  // This is were the initial data from the walmart API gets stored into the DB
+  let result = ''; //declare a global empty variable.
+  let runner = new walmart(); //creates a new object
+  let callbackFnc = function (data) { //callback function to fetch data
+    result = data;
+    console.log("PRICEEEEEEEE : " + result.price);
+
+    result.forEach(function (toy) {
+      db.Inventory.create({
+        title: toy.name,
+        product_condition: "New",
+        availability: 40,
+        price: toy.price,
+        url: toy.image,
+        description: toy.description
+      }).then(function (dbToys) {
+        console.log("Good Job");
+      });
+    })
+
+  };
+  runner.getToyData(callbackFnc); //calls the constructors function and passes a callback function.
+
+
   // router.get("/burgers", function(req, res) {
   //   // express callback response by calling burger.selectAllBurger
   //   burger.all(function(burgerData) {
@@ -10,7 +35,7 @@ module.exports = function (app) {
   //     res.render("index", { burger_data: burgerData });
   //   });
   // });
-  
+
   // // post route -> back to index
   // router.post("/burgers/create", function(req, res) {
   //   // takes the request object using it as input for buger.addBurger
@@ -21,8 +46,8 @@ module.exports = function (app) {
   //     
   //   });
   // });
-  
-  app.get("/toys", function(req, res) {
+
+  app.get("/toys", function (req, res) {
     // var query = {};
     // if (req.query.author_id) {
     //   query.AuthorId = req.query.author_id;
@@ -33,7 +58,7 @@ module.exports = function (app) {
     db.Inventory.findAll({
       // where: query,
       // include: [db.User]
-    }).then(function(dbInventory) {
+    }).then(function (dbInventory) {
       // let inventory = {
       //   toys: dbInventory
       // }
@@ -44,10 +69,12 @@ module.exports = function (app) {
 
       // console.log("My arr works :" + arr);
       // console.log(dbInventory[0].dataValues);
-      res.render("index", {inventory : dbInventory} );
+      res.render("index", {
+        inventory: dbInventory
+      });
     });
   });
-  
+
 
   // post request for uploading new toy to DB
   app.post("/toys", function (req, res) {
