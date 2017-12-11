@@ -1,3 +1,135 @@
+<<<<<<< HEAD
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+h1{
+  font-family: 'Suez One', serif;
+  font-size: 220px;
+}
+
+#footer-toyswap{
+  font-family: 'Suez One', serif;
+  font-size: 20px;
+  color: white;
+}
+#footer-toyswap img{
+  background-color: #7e57c2; 
+  height: 18px;
+  width: 75px;
+  margin-top: 9px;
+
+}
+
+a{
+  width: 40%;
+}
+
+#open-buttons{
+  margin-top: 5%;
+  padding: 0%;
+  
+}
+
+#group-div{
+text-align: center;
+}
+
+#connect-div{
+text-align: center;
+}
+
+
+.material-icons {
+  color: #7e57c2;
+  }
+
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 100%;
+  line-height: 0;
+  height: auto;
+  /*background-color: #64ffda;*/
+  background: rgba(100,255,218,1);
+background: -moz-linear-gradient(top, rgba(100,255,218,1) 0%, rgba(100,255,218,1) 6%, rgba(100,255,218,1) 13%, rgba(126,87,194,1) 93%, rgba(126,87,194,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(100,255,218,1)), color-stop(6%, rgba(100,255,218,1)), color-stop(13%, rgba(100,255,218,1)), color-stop(93%, rgba(126,87,194,1)), color-stop(100%, rgba(126,87,194,1)));
+background: -webkit-linear-gradient(top, rgba(100,255,218,1) 0%, rgba(100,255,218,1) 6%, rgba(100,255,218,1) 13%, rgba(126,87,194,1) 93%, rgba(126,87,194,1) 100%);
+background: -o-linear-gradient(top, rgba(100,255,218,1) 0%, rgba(100,255,218,1) 6%, rgba(100,255,218,1) 13%, rgba(126,87,194,1) 93%, rgba(126,87,194,1) 100%);
+background: -ms-linear-gradient(top, rgba(100,255,218,1) 0%, rgba(100,255,218,1) 6%, rgba(100,255,218,1) 13%, rgba(126,87,194,1) 93%, rgba(126,87,194,1) 100%);
+background: linear-gradient(to bottom, rgba(100,255,218,1) 0%, rgba(100,255,218,1) 6%, rgba(100,255,218,1) 13%, rgba(126,87,194,1) 93%, rgba(126,87,194,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#64ffda', endColorstr='#7e57c2', GradientType=0 );
+}
+.parallax-container .section {
+  width: 100%;
+  }
+
+.fixed-action-btn{
+top: 24px; 
+left: 24px; 
+height: 50px;
+width: 50px;
+}
+
+
+.fixed-action-btn.horizontal ul{
+left: -40px;
+text-align: center;
+
+}
+
+.description-label{
+  margin-left: 50px;
+}
+
+/*MEDIA QUERIES--------------------------------*/
+
+@media only screen and (max-width : 1200px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+
+  
+  }
+  #toyswap-title {
+    font-size: 160px;
+    margin-top: 25%;
+  }
+  #index-banner .section {
+    top: 10%;
+
+  }
+}
+
+@media only screen and (max-width : 800px) {
+  #toyswap-title {
+  font-size: 60px;
+  margin-top: 40%;
+}
+  #index-banner .section {
+    top: 10%;
+  }
+}
+/*-------------------------------------------*/
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+=======
 .viewImg {
     height: 400px;
     width: 400px;
@@ -100,3 +232,4 @@
     text-decoration: underline;
 }
 
+>>>>>>> master
