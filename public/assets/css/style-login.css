@@ -1,0 +1,25 @@
+#center-card {
+    margin-top: 70px;
+    margin-left: 300px;
+    width: 300px;
+    
+  }
+  
+  #text{
+      font-family: avenir, 'avenir next', helvetica, arial, sans-serif;
+      font-size: 20px;
+  }
+  
+  p {
+    font-family: avenir, 'avenir next', helvetica, arial, sans-serif;
+  }
+  
+    @media screen and (min-width: 959px) {
+      #center-card {
+        width: 300px;
+      }
+    }
+    
+  
+    @media only screen and (min-width: 0)
+  
