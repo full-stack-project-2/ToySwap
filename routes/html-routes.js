@@ -13,10 +13,20 @@ module.exports = function (app) {
 
   // index route loads index.handlebars
   app.get("/", function (req, res) {
+    // console.log(walmart);
     res.render("index");
   });
   app.get("/products", function (req, res) { //<-- Just for testing... byAlex    
     res.render("products");
+  });
+  app.get("/:pgNumIn", function (req, res) { //<-- Just for testing... byAlex
+    let pgNum = req.params.pgNumIn; 
+    if(pgNum === 'log')   
+      res.render("activity");
+    else if(pgNum === 'messages')   
+      res.render("messages");  
+    else 
+      res.render("account");
   });
 
   // // cms route loads cms.html

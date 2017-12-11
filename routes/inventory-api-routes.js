@@ -63,17 +63,6 @@ module.exports = function (app) {
   });
 
 
-
-
-
-
-
-
-
-
-
-
-  
   // post request for uploading new toy to DB
   app.post("/toys", function (req, res) {
     // console.log(req.body);
