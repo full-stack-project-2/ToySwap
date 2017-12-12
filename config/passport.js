@@ -44,6 +44,18 @@ passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
 
+
+// Try this code instead to deserialize user after refreshing page (currently logs user off)
+//passport.serializeUser(function(user, done) {
+//   done(null, user.id);
+// });
+
+// passport.deserializeUser(function(id, done) {
+//   User.findById(id, function(err, user) {
+//     done(err, user);
+//   });
+// });
+
 // Exporting our configured passport
 module.exports = passport;
 
