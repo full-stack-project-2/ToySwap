@@ -10,7 +10,8 @@ module.exports = function(app) {
       username: req.body.username,
       password: req.body.password
     }).then(function() {
-      res.redirect(307, "/login");
+      passport.authenticate();
+      res.redirect(307, "/products");
     }).catch(function(err) {
       console.log(err);
       res.json(err);
