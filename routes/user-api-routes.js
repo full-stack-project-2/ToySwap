@@ -23,7 +23,12 @@ module.exports = function(app) {
       res.redirect('/products');
     });
   
- 
+ app.post('/login',
+  passport.authenticate('local',
+    { successRedirect: '/products',
+    failureRedirect: '/login',
+    failureFlash: true })
+);
 
   // Route for logging user out
   // app.get("/logout", function(req, res) {
