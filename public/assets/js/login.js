@@ -6,7 +6,7 @@ $(document).ready(function () {
         let user = {
             username: $("#username").val().trim(),
             password: $("#password").val().trim()
-        }
+        };
 
         console.log(user);
         $.post("/login", user, function (data) {

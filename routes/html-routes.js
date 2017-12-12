@@ -5,6 +5,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
+const session = require('client-sessions');
 // Routes
 // =============================================================
 module.exports = function (app) {
@@ -20,35 +21,55 @@ module.exports = function (app) {
   app.get("/home", function (req,res){
     // console.log("Redirect inc");
     res.render("index");
-  })
+  });
+  
+  app.use(session({
+    cookieName: 'session',
+    secret: 'this_is_my_secret_phrase',
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000,
+    })
+  );
 
   app.get("/login", function (req, res) {
     res.render("login");
   });
+
   app.post("/login", function (req,res){
-    res.redirect("/products");
-  })
+    let uName = req.body.username;
+    let pwd = req.body.password;
+    /**
+     * Check if username and password are in db.
+     * If they are run:
+     *      req.session.user = uName;
+     *      res.redirect('/');
+     * else redirect back to login with error message
+     *      res.render('login',{errMsg: 'INCORRECT USERNAME/PASSWORD'});
+     */
+    
+  });
 
   app.get("/register", function(req,res){
     res.render("register");
-  })
+  });
 
   app.post("/register", function(req,res){
     console.log(req.body);
     res.redirect("products");
-  })
+  });
 
 
-  app.get("/products", function (req, res) { //<-- Just for testing... byAlex    
+  app.get("/products", function (req, res) {   
     res.render("products");
   });
-  app.get("/:pgNumIn", function (req, res) { //<-- Just for testing... byAlex
+
+  app.get("/acct/:pgNumIn", function (req, res) { 
     let pgNum = req.params.pgNumIn; 
     if(pgNum === 'log')   
       res.render("activity");
     else if(pgNum === 'messages')   
       res.render("messages");  
-    else 
+    else if(pgNum === 'account') 
       res.render("account");
   });
 
