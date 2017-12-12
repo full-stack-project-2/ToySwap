@@ -1,6 +1,6 @@
 //alert("hi");
 $(document).ready(function() {
-  $('select').material_select();
+  $("select").material_select();
 
 // for HTML5 "required" attribute
   $("select[required]").css({

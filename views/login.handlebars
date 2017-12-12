@@ -10,7 +10,7 @@
             <form class="login-form">
                 <div class="row">
                     <div class="input-field col s12 center">
-                        <img src="assets/logo.png" class="circle responsive-img valign profile-image-login" width=120 height=120>
+                        {{!-- <img src="/assets/img/logo.png" class="circle responsive-img valign profile-image-login" width=120 height=120> --}}
                         <p class="center login-form-text" id="text"> Toy Swap</p>
                     </div>
                 </div>
@@ -42,13 +42,13 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <a href="" class="btn waves-effect waves-red col s12">Login</a>
+                        <a href="/login" id="login" class="btn waves-effect waves-red col s12">Login</a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6 m6 l6">
                         <p class="margin medium-small">
-                            <a href="">Register Now!</a>
+                            <a href="/register">Register Now!</a>
                         </p>
                     </div>
                     <div class="input-field col s6 m6 l6">
@@ -60,4 +60,6 @@
             </form>
         </div>
     </div>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="assets/js/login.js"></script>
 </body>

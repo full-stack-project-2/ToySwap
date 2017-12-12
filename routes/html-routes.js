@@ -12,10 +12,33 @@ module.exports = function (app) {
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   // index route loads index.handlebars
+
   app.get("/", function (req, res) {
-    // console.log(walmart);
     res.render("index");
   });
+
+  app.get("/home", function (req,res){
+    // console.log("Redirect inc");
+    res.render("index");
+  })
+
+  app.get("/login", function (req, res) {
+    res.render("login");
+  });
+  app.post("/login", function (req,res){
+    res.redirect("/products");
+  })
+
+  app.get("/register", function(req,res){
+    res.render("register");
+  })
+
+  app.post("/register", function(req,res){
+    console.log(req.body);
+    res.redirect("products");
+  })
+
+
   app.get("/products", function (req, res) { //<-- Just for testing... byAlex    
     res.render("products");
   });

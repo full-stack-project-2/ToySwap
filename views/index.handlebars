@@ -86,7 +86,7 @@
 
                 <div class="row">
                     <div class="col s12 m6" id="open-buttons">
-                        <a class="waves-effect waves-light btn modal-trigger deep-purple lighten-1" id="register-button" href="#modal1">Register</a>
+                        <a class="waves-effect waves-light btn modal-trigger deep-purple lighten-1" id="register-button" href="/register">Register</a>
 
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal modal-fixed-footer">
@@ -95,13 +95,13 @@
                                 <p>A bunch of text</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Register</a>
+                                <a href="/register" class="modal-action modal-close waves-effect waves-green btn-flat">Register</a>
                             </div>
                         </div>
                     </div>
                     <div class="col s12 m6" id="open-buttons">
                         <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn modal-trigger deep-purple lighten-1" id="login-button" href="#modal2">Login</a>
+                        <a class="waves-effect waves-light btn modal-trigger deep-purple lighten-1" id="login-button" href="/login">Login</a>
 
                         <!-- Modal Structure -->
                         <div id="modal2" class="modal modal-fixed-footer">
@@ -110,7 +110,7 @@
                                 <p>A bunch of text</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Login</a>
+                                <a href="/login" class="modal-action modal-close waves-effect waves-green btn-flat ">Login</a>
                             </div>
                         </div>
                     </div>
@@ -266,9 +266,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="assets/js/toyswap.js"></script>
-    <script src="assets/js/init.js"></script>
-    <script src="assets/js/materialize.js"></script>
-
+    {{!-- <script src="assets/js/init.js"></script> --}}
+    {{!-- <script src="assets/js/materialize.js"></script> --}}
+    <script src="/assets/js/home.js"></script>
     <div class="hiddendiv common"></div>
     <div class="drag-target" data-sidenav="nav-mobile" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
 

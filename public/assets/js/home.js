@@ -9,7 +9,7 @@ $(document).ready(function () {
         event.preventDefault();
         console.log("submitted");
         // Make a newToy object
-        var newToy = {
+        let newToy = {
             title: $("#title").val().trim(),
             product_condition: $("#product_condition").val().trim(),
             availability: $("#availability").val().trim(),
