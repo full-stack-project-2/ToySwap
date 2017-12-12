@@ -9,16 +9,12 @@ passport.use(new LocalStrategy(
     usernameField: "username"
   },
   function(username, password, done) {
-    User.findOne({ username: username }
-
-      
     // When a user tries to sign in this code runs
     db.User.findOne({
       where: {
         username: username
       }
-    }), function(err, dbUser) {
-      if (err) { return done(err); }
+    }).then(function(dbUser) {
       // If there's no user with the given username
       if (!dbUser) {
         return done(null, false, {
@@ -48,18 +44,5 @@ passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
 
-
-// Try this code instead to deserialize user after refreshing page (currently logs user off)
-//passport.serializeUser(function(user, done) {
-//   done(null, user.id);
-// });
-
-// passport.deserializeUser(function(id, done) {
-//   User.findById(id, function(err, user) {
-//     done(err, user);
-//   });
-// });
-
 // Exporting our configured passport
 module.exports = passport;
-
