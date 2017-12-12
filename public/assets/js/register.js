@@ -2,21 +2,22 @@ $(document).ready(function () {
     
         $("#register").on("click", function (event) {
             event.preventDefault();
+            console.log("submitted");
             let newUser = {
                 username: $("#username").val().trim(),
                 email: $("#email").val().trim(),
                 password: $("#password").val().trim(),
                 password2: $("#password-again").val().trim()
-            } 
+            }
+            console.log(newUser);
             if (!newUser.email || !newUser.password) {
                 return;
               }
               if (newUser.password !== newUser.password2) {
                 alert("Make sure your passwords are correct");
-                return;
               }
             console.log(newUser);
-            $.post("/register", newUser).done(function(data) {
+            $.post("/register", newUser).then(function(data) {
                 // console.log(data);
                 window.location.replace("/products");
                 // console.log("REPLACE");
