@@ -50,9 +50,9 @@ app.get("/toys/:toyID/:userID", function (req, res) {
    });		
  
  		
- -//   app.get("/products", function (req, res) { //<-- Just for testing... byAlex    		
- -//     res.render("products");		
- -//   });
+ //   app.get("/products", function (req, res) { //<-- Just for testing... byAlex    		
+ //     res.render("products");		
+ //   });
 
 
 
