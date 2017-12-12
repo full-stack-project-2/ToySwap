@@ -1,19 +1,15 @@
 const db = require("../models");
 const passport = require("../config/passport");
 module.exports = function(app) {
-console.log("Not even close");
-
-    // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
+  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/register", function(req, res) {
-    console.log("***************");
     db.User.create({
       email: req.body.email,
       username: req.body.username,
       password: req.body.password
     }).then(function() {
-      
       res.redirect(307, "/login");
     }).catch(function(err) {
       console.log(err);
@@ -22,7 +18,7 @@ console.log("Not even close");
     });
   });
 
-  app.post("/login", passport.authenticate('local', { failureRedirect: '/login' }),
+  app.post("/login", passport.authenticate('local'),
     function(req, res) {
       res.redirect('/products');
     });
