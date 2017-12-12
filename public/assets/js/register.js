@@ -18,7 +18,7 @@ $(document).ready(function () {
             console.log(newUser);
             $.post("/register", newUser).done(function(data) {
                 // console.log(data);
-                // window.location.replace("/home");
+                window.location.replace("/products");
                 // console.log("REPLACE");
             }).catch(function(err) {
                 console.log(err);
