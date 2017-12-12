@@ -10,8 +10,7 @@ module.exports = function(app) {
       username: req.body.username,
       password: req.body.password
     }).then(function() {
-      passport.authenticate();
-      res.redirect(307, "/products");
+      res.redirect(307, "/login");
     }).catch(function(err) {
       console.log(err);
       res.json(err);
@@ -24,12 +23,7 @@ module.exports = function(app) {
       res.redirect('/products');
     });
   
- app.post('/login',
-  passport.authenticate('local',
-    { successRedirect: '/products',
-    failureRedirect: '/login',
-    failureFlash: true })
-);
+ 
 
   // Route for logging user out
   // app.get("/logout", function(req, res) {
