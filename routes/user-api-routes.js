@@ -1,6 +1,45 @@
-// var db = require("../models");
+const db = require("../models");
+const passport = require("../config/passport");
+module.exports = function(app) {
+console.log("Not even close");
 
-// module.exports = function(app) {
+    // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
+  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
+  // otherwise send back an error
+  app.post("/register", function(req, res) {
+    console.log("***************");
+    db.User.create({
+      email: req.body.email,
+      username: req.body.username,
+      password: req.body.password
+    }).then(function() {
+      
+      res.redirect(307, "/login");
+    }).catch(function(err) {
+      console.log(err);
+      res.json(err);
+      // res.status(422).json(err.errors[0].message);
+    });
+  });
+
+  app.post("/login", passport.authenticate('local', { failureRedirect: '/login' }),
+    function(req, res) {
+      res.redirect('/products');
+    });
+  
+ 
+
+  // Route for logging user out
+  // app.get("/logout", function(req, res) {
+  //   req.logout();
+  //   res.redirect("/");
+  // });
+
+
+
+
+
+
 //   app.get("/api/authors", function(req, res) {
 //     // Here we add an "include" property to our options in our findAll query
 //     // We set the value to an array of the models we want to include in a left outer join
@@ -54,21 +93,6 @@ app.get("/toys/:toyID/:userID", function (req, res) {
  //     res.render("products");		
  //   });
 
-
-
-
-
-
-
-
-
-
-//   app.post("/api/authors", function(req, res) {
-//     db.Author.create(req.body).then(function(dbAuthor) {
-//       res.json(dbAuthor);
-//     });
-//   });
-
 //   app.delete("/api/authors/:id", function(req, res) {
 //     db.Author.destroy({
 //       where: {
@@ -79,4 +103,4 @@ app.get("/toys/:toyID/:userID", function (req, res) {
 //     });
 //   });
 
-// };
+};

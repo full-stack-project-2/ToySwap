@@ -4,30 +4,20 @@
 // ******************************************************************************
 // *** Dependencies
 // =============================================================
-var express = require("express");
-var bodyParser = require("body-parser");
-
-
+const express = require("express");
+const bodyParser = require("body-parser");
+const flash = require('connect-flash');
 // Sets up the Express App
 // =============================================================
-var app = express();
-var PORT = process.env.PORT || 8080;
-app.use(express.static(__dirname + '/public'));
+const app = express();
+const passport = require("./config/passport");
+const session = require("express-session");
+const PORT = process.env.PORT || 8080;
+
+
 
 // Requiring our models for syncing
-var db = require("./models");
-
-
-// Sets up the Express app to handle data parsing
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
- 
-// Static directory
-// app.use(express.static("public"));
-
-
+const db = require("./models");
 
 // Set Handlebars.
 const exphbs = require("express-handlebars");
@@ -37,11 +27,33 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
+
+
+// Sets up the Express middleware to handle data parsing
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+// Creating express app and configuring middleware needed for authentication
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true}));
+//flash is used to show a message on an incorrect login
+app.use(flash());
+
+//passport middleware methods
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use(express.static('public'));
+
+
 // Routes
 // =============================================================
-require("./routes/html-routes.js")(app);
-// require("./routes/user-api-routes.js")(app);
-require("./routes/inventory-api-routes.js")(app);
+require("./routes/html-routes")(app);
+require("./routes/user-api-routes")(app);
+require("./routes/inventory-api-routes")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

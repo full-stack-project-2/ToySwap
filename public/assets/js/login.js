@@ -8,11 +8,19 @@ $(document).ready(function () {
             password: $("#password").val().trim()
         };
 
+        if (!user.email || !user.password) {
+            return;
+          }
+
         console.log(user);
-        $.post("/login", user, function (data) {
+        $.post("/login", user).then(function(data) {
             // console.log(data);
             // window.location.replace("/home");
             // console.log("REPLACE");
-        });
+        }).catch(function(err) {
+            console.log(err);
+          });
+        $("#username").val("");
+        $("#password").val("");
     });
 }); 
