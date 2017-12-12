@@ -1,17 +1,25 @@
 const db = require("../models");
 const passport = require("../config/passport");
 module.exports = function(app) {
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
+console.log("Not even close");
+
+    // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/register", function(req, res) {
+    console.log("***************");
     db.User.create({
       email: req.body.email,
       username: req.body.username,
       password: req.body.password
     }).then(function() {
+<<<<<<< HEAD
       passport.authenticate();
       res.redirect(307, "/products");
+=======
+      
+      res.redirect(307, "/login");
+>>>>>>> parent of fbe55d9... Fixed minor bugs, user can't access the products page unless logged in, they can't log in after creating an account either, need to fix this.
     }).catch(function(err) {
       console.log(err);
       res.json(err);
@@ -19,7 +27,7 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/login", passport.authenticate('local'),
+  app.post("/login", passport.authenticate('local', { failureRedirect: '/login' }),
     function(req, res) {
       res.redirect('/products');
     });
