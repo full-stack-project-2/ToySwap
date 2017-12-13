@@ -1,14 +1,17 @@
 #center-card {
-    margin-top: 70px;
-    margin-left: 300px;
+  /*  margin-top: 70px;
+    margin-left: 300px;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 300px;
     
   }
-
-
+  
   #text{
-      font-family: avenir, 'avenir next', helvetica, arial, sans-serif;
-      font-size: 20px;
+    font-family: avenir, 'avenir next', helvetica, arial, sans-serif;
+    font-size: 20px;
   }
   
   p {
@@ -23,4 +26,3 @@
     
   
     @media only screen and (min-width: 0)
-  
