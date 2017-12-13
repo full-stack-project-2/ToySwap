@@ -11,15 +11,10 @@ $(document).ready(function () {
             if (!user.email || !user.password) {
                 return;
               }
-    
-            console.log(user);
-            $.post("/login", user).then(function(data) {
-                // console.log(data);
-                // window.location.replace("/home");
-                // console.log("REPLACE");
-            }).catch(function(err) {
-                console.log(err);
-              });
+
+            $.post("/login", user, function(){
+                window.location.href = "/products";
+            });
             $("#username").val("");
             $("#password").val("");
         });
