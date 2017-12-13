@@ -19,22 +19,20 @@ module.exports = function (app) {
     res.render("index");
   });
 
-  // app.use(session({
-  //   cookieName: 'session',
-  //   secret: 'this_is_my_secret_phrase',
-  //   duration: 30 * 60 * 1000,
-  //   activeDuration: 5 * 60 * 1000,
-  //   })
-  // );
-
-  app.get("/login", function (req, res) {
-    // console.log(req.user); 
-    if (req.user) {
-      res.redirect("/products");
-    }
-    res.render("login");
+  app.get("/loginErr", function (req, res) {    
+    req.flash('info', 'Flash is back!')
+    res.render('login',{errMsg: 'INCORRECT USERNAME/PASSWORD'});
   });
 
+  app.get("/login", function (req, res) {    
+    if (req.user)
+      res.redirect("/products");
+    else
+      res.render("login");
+      
+  });
+
+  
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the products page.
   // Otherwise the user will be sent an error
@@ -49,32 +47,13 @@ module.exports = function (app) {
   });
 
 
-
-
-  // app.post("/login", function (req,res){
-  //   let uName = req.body.username;
-  //   let pwd = req.body.password;
-  //   /**
-  //    * Check if username and password are in db.
-  //    * If they are run:
-  //    *      req.session.user = uName;
-  //    *      res.redirect('/');
-  //    * else redirect back to login with error message
-  //    *      res.render('login',{errMsg: 'INCORRECT USERNAME/PASSWORD'});
-  //    */
-
-  // });
-
- 
-
-
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/products", isAuthenticated, function (req, res) {
     res.render("products");
   });
 
-  app.get("/acct/:pgNumIn", function (req, res) {
+  app.get("/acct/:pgNumIn", isAuthenticated, function (req, res) {
     let pgNum = req.params.pgNumIn;
     if (pgNum === 'log')
       res.render("activity");
