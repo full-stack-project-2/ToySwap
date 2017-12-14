@@ -12,11 +12,11 @@ const isAuthenticated = require("../config/middleware/authentication");
 // =============================================================
 module.exports = function (app) {
   app.get("/", function (req, res) {
-    res.render("index");
+    res.render("home");
   });
 
   app.get("/home", function (req, res) {
-    res.render("index");
+    res.render("home");
   });
 
   app.get("/loginErr", function (req, res) {    
@@ -26,10 +26,21 @@ module.exports = function (app) {
 
   app.get("/login", function (req, res) {    
     if (req.user)
-      res.redirect("/products");
+      res.redirect("/list");
     else
       res.render("login");
       
+  });
+  app.get("/register", function (req, res) {
+    res.render("register");
+  });
+
+
+  app.get("/list", isAuthenticated, function (req, res) {    
+    if (req.user)
+      res.render("list");
+    else
+      res.render("login");
   });
 
   
@@ -42,9 +53,7 @@ module.exports = function (app) {
   //   console.log(req.body);
   //   res.redirect("products");
   // });
-  app.get("/register", function (req, res) {
-    res.render("register");
-  });
+
 
 
   // Here we've add our isAuthenticated middleware to this route.

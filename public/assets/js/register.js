@@ -17,7 +17,7 @@ $(document).ready(function () {
               }
             console.log(newUser);
             $.post("/register", newUser).done(function(data) {
-                window.location.href = "/products";
+                window.location.href = "/list";
             });
             $("#username").val("");
             $("#password").val("");
