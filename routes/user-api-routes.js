@@ -28,7 +28,6 @@ module.exports = function (app) {
 
 
 
-
   // Route for logging user out
   // app.get("/logout", function(req, res) {
   //   req.logout();

@@ -57,8 +57,14 @@ require("./routes/inventory-api-routes")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
+    db.User.create({
+      email: "walmart@walmart.com",
+      username: "walmart",
+      password: "walmart",
+    }).then(function (walmart) {
+    });
     console.log("App listening on PORT " + PORT);
   });
 });

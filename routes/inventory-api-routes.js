@@ -1,12 +1,13 @@
 var db = require("../models");
 const walmart = require("../walmart_api/data"); //requires the constructor
+const isAuthenticated = require("../config/middleware/authentication");
 // Routes
 // =============================================================
 module.exports = function (app) {
+// This is were the initial data from the walmart API gets stored into the DB
 
-  // This is were the initial data from the walmart API gets stored into the DB
-  let result = ''; //declare a global empty variable.
-  let runner = new walmart(); //creates a new object
+    let result = ''; //declare a global empty variable.
+    let runner = new walmart(); //creates a new object
   let callbackFnc = function (data) { //callback function to fetch data
     result = data;
     result.forEach(function (toy) {
@@ -16,35 +17,46 @@ module.exports = function (app) {
         availability: 40,
         price: toy.price,
         url: toy.image,
-        description: toy.description
+        description: toy.description,
+        UserId: 1
       }).then(function (dbToys) {
       });
     })
 
   };
-  runner.getToyData(callbackFnc); //calls the constructors function and passes a callback function.
 
+  db.User.create({
+    email: "walmart@walmart.com",
+    username: "walmart",
+    password: "walmart",
+  }).then(function (walmart) {
+  });
+  runner.getToyData(callbackFnc);
+  
+  // runner.getToyData(callbackFnc);
+   //calls the constructors function and passes a callback function.
 
-  // router.get("/burgers", function(req, res) {
-  //   // express callback response by calling burger.selectAllBurger
-  //   burger.all(function(burgerData) {
-  //     // wrapper for orm.js that using MySQL query callback will return burger_data, render to index with handlebar
-  //     res.render("index", { burger_data: burgerData });
+  // app.get("/list", isAuthenticated, function (req, res) {    
+  //   db.Inventory.findAll({
+  //     where: query,
+  //     include: [db.Inventory]
+  //   }).then(function (dbInventory) {
+  //     res.render("products", {
+  //       toyID: toyID,
+  //       inventory: dbInventory
+  //     });
   //   });
+
   // });
 
-  // // post route -> back to index
-  // router.post("/burgers/create", function(req, res) {
-  //   // takes the request object using it as input for buger.addBurger
-  //   burger.create(req.body.burger_name, function(result) {
-  //     // wrapper for orm.js that using MySQL insert callback will return a log to console,
-  //     // render back to index with handle
-  //     console.log(result);
-  //     
-  //   });
-  // });
 
-  app.get("/toys", function (req, res) {
+
+
+
+
+  app.get("/list-toys", isAuthenticated, function (req, res) {
+    
+    console.log("FROM DB *****************************************");
     // var query = {};
     // if (req.query.author_id) {
     //   query.AuthorId = req.query.author_id;
@@ -54,9 +66,10 @@ module.exports = function (app) {
     // In this case, just db.Author
     db.Inventory.findAll({
       // where: query,
-      // include: [db.User]
+      include: [db.User]
     }).then(function (dbInventory) {
-      res.render("index", {
+      console.log("FROM DB *****************************************" + "\n" + dbInventory);
+      res.render("list", {
         inventory: dbInventory
       });
     });
