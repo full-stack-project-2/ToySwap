@@ -8,18 +8,15 @@ $(document).ready(function () {
                 password: $("#password").val().trim()
             };
     
-            if (!user.email || !user.password) {
+            if (!user.username || !user.password) {
                 return;
               }
-    
-            console.log(user);
-            $.post("/login", user).then(function(data) {
-                // console.log(data);
-                // window.location.replace("/home");
-                // console.log("REPLACE");
-            }).catch(function(err) {
-                console.log(err);
-              });
+
+            $.post("/login", user, function(){
+                window.location.href = "/products";
+            }).then(function(){
+                console.log('');
+            });
             $("#username").val("");
             $("#password").val("");
         });
