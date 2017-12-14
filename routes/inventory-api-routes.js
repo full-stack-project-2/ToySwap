@@ -24,13 +24,6 @@ module.exports = function (app) {
     })
 
   };
-
-  db.User.create({
-    email: "walmart@walmart.com",
-    username: "walmart",
-    password: "walmart",
-  }).then(function (walmart) {
-  });
   runner.getToyData(callbackFnc);
   
   // runner.getToyData(callbackFnc);
@@ -55,12 +48,6 @@ module.exports = function (app) {
 
 
   app.get("/list-toys", isAuthenticated, function (req, res) {
-    
-    console.log("FROM DB *****************************************");
-    // var query = {};
-    // if (req.query.author_id) {
-    //   query.AuthorId = req.query.author_id;
-    // }
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
@@ -68,13 +55,35 @@ module.exports = function (app) {
       // where: query,
       include: [db.User]
     }).then(function (dbInventory) {
-      console.log("FROM DB *****************************************" + "\n" + dbInventory);
-      res.render("list", {
-        inventory: dbInventory
-      });
+      // console.log("FROM DB *****************************************" + "\n" + dbInventory);
+      // console.log(dbInventory[0].dataValues);
+      // console.log(dbInventory[0].dataValues.User.dataValues);
+      let hbsObject = {
+        toys: dbInventory[0].dataValues,
+        users: dbInventory[0].dataValues.User.dataValues
+      };
+      console.log(hbsObject);
+      res.render("list", hbsObject);
     });
   });
 
+  // router.get("/", function (req, res) {
+  //   burger.all(function (data) {
+  //     let hbsObject = {
+  //       burgers: data
+  //     };
+  //     res.render("index", hbsObject);
+  //   });
+  // });
+  
+
+//   .findAll({
+//     //attributes: ['id'] //select fields
+//     })
+// //.then((todos) => res.status(200).send(todos))
+// .then((todos) => res.render('test/test_view', {layout: 'ca_layout.handlebars', test_data: todos}))
+// .catch((error) => res.status(400).send(error));
+// } FOR DEBUGGING SENDING USERS A CUSTOM 404 PAGE
 
   // post request for uploading new toy to DB
   app.post("/toys", function (req, res) {

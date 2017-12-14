@@ -19,13 +19,6 @@ const PORT = process.env.PORT || 8080;
 // Requiring our models for syncing
 const db = require("./models");
 
-// Set Handlebars.
-const exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({
-    defaultLayout: "main"
-}));
-app.set("view engine", "handlebars");
 
 
 
@@ -34,6 +27,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+// Set Handlebars.
+const exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({
+    defaultLayout: "main"
+}));
+app.set("view engine", "handlebars");
 
 // Creating express app and configuring middleware needed for authentication
 // We need to use sessions to keep track of our user's login status

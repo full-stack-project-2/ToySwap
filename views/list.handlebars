@@ -57,8 +57,15 @@
                 </ul>
                 <button class="btn btn-info view" id="btn-{{id}}-{{UserID}}">View</button>
             </div> --}}
-            
-    {{#each inventory}}
+{{#each toys}}
+    <h2>{{id}}</h2>
+     <h2>{{title}}</h2>
+     <h2>{{price}}</h2>
+    
+  {{/each}}
+
+  
+    {{!-- {{#each toys}} --}}
             <div class="row" id="rowOne">
                 <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px">
                     <div class="item-container">
@@ -77,9 +84,9 @@
                         </div>
                         <a href="/toy/{{id}}" class="bold">
                             <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px;">
-                                {{!-- <div class="owner-info-pic">
+                                 <div class="owner-info-pic">
                                     <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div> --}}
+                                </div>
                                 Username : {{username}}
                                 <div class="col s2">
                                     <img src="images/yuna.jpg" alt="" class="circle responsive-img">
@@ -89,7 +96,7 @@
                         </a>
                     </div>
                 
-                 {{/each}}
+                 {{!-- {{/each}} --}}
                 {{!-- <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px">
                     <div class="item-container">
                         <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
