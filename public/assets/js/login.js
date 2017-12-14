@@ -14,10 +14,10 @@ $(document).ready(function () {
 
             $.post("/login", user, function(){
                 window.location.href = "/products";
-            }).then(function(){
+            }).then(function(data){
                 console.log('');
             });
-            $("#username").val("");
-            $("#password").val("");
+            //$("#username").val("");
+            //$("#password").val("");
         });
     });
