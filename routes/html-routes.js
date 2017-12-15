@@ -25,6 +25,10 @@ module.exports = function (app) {
     res.render("home");
   });
 
+  app.get("/about", function (req, res){
+    res.render("about-us");
+  })
+
   app.get("/loginErr", function (req, res) {    
     res.flash('info', 'Flash is back!')
     res.render('login',{errMsg: 'INCORRECT USERNAME/PASSWORD'});

@@ -16,17 +16,36 @@
 
 <body>
 
-  <div class="fixed-action-btn horizontal click-to-toggle">
-    <a class="btn-floating btn-large red lighten-1">
-      <i class="material-icons">menu</i>
-    </a>
-    <ul>
-      <li><a class="btn-floating red lighten-1"><i class="material-icons" title="Home">home</i></a></li>
-      <li><a class="btn-floating red lighten-1"><i class="material-icons" title="About Us">grade</i></a></li>
-      <li><a class="btn-floating red lighten-1"><i class="material-icons">publish</i></a></li>
-      <li><a class="btn-floating red lighten-1"><i class="material-icons">attach_file</i></a></li>
-    </ul>
-  </div>
+  <div id="menu-btn" class="fixed-action-btn horizontal click-to-toggle">
+        <a class="btn-floating btn-large white">
+            <i class="material-icons" id="menu" title="Menu">menu</i>
+        </a>
+        <ul>
+            <li>
+                <a class="btn-floating red lighten-1">
+                    <i class="material-icons" id="home" title="Home">home</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating red lighten-1">
+                    <i class="material-icons"  title="About Us">grade</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating red lighten-1">
+                    <i class="material-icons" id="products" title="Products">apps</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating red lighten-1">
+                    <i class="material-icons" id="profile" title="Profile">face</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+
 
   <div id="index-banner" class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
@@ -45,22 +64,55 @@
        
 
   </div>
-  <h4 class="header center">Meet the Team!</h4>
+  <h4 id="meet-us" class="header center">Meet the Team!</h4>
   <div class="carousel">
-    <a class="carousel-item" href="#one!"><img src="assets/img/dv.jpg"><p>Dariell Vasquez</p></a>
-    <a class="carousel-item" href="#two!"><img src="assets/img/av.jpg"><p>Alexander Nieves</p></a>
-    <a class="carousel-item" href="#three!"><img src="assets/img/yj.png"><p>Yubin Jamora</p></a>
-    <a class="carousel-item" href="#four!"><img src="assets/img/cn.jpg"><p>Conor Nolan</p></a>
+    <a class="carousel-item" href="#one!"><img src="assets/img/dv.jpg"><p class="red-text">Dariell Vasquez</p></a>
+    <a class="carousel-item" href="#two!"><img src="assets/img/an.jpg"><p class="red-text">Alexander Nieves</p></a>
+    <a class="carousel-item" href="#three!"><img src="assets/img/yj.png"><p class="red-text">Yubin Jamora</p></a>
+    <a class="carousel-item" href="#four!"><img src="assets/img/CN.png"><p class="red-text">Conor Nolan</p></a>
     
   </div>
+   
+   <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12" id="group-div">
+                    <h5 class="white-text">Project 2 Group Members</h5>
+                    <ul>
+                        <a class="white-text" href="https://github.com/Dquez"><li>Dariell Vasquez</li></a>
+                        <a class="white-text" href="https://github.com/dogrock2"><li>Alexander Nieves</li></a>
+                        <a class="white-text" href="https://github.com/yubinjamora"><li>Yubin Jamora</li></a>
+                        <a class="white-text" href="https://github.com/nolanconorj"><li>Conor Nolan</li></a>
+                    </ul>
 
+                </div>
+
+                <div class="col l6 s12" id="connect-div">
+                    <h5 class="white-text">Connect With Us!</h5>
+                    <ul>
+                        <li>
+                            <a class="white-text" href="https://www.linkedin.com/in/dariellvasquez7">LinkedIn - Dariell</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="https://www.linkedin.com/in/alexander-nieves-a04b76b1/">LinkedIn - Alex</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="https://www.linkedin.com/in/yubin-jamora-410b02b5/">LinkedIn - Yubin</a>
+                        </li>
+                        <li>
+                            <a class="white-text" href="https://www.linkedin.com/in/conorjamesnolan/">LinkedIn - Conor </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
   
   
 
-  <footer class="page-footer teal accent-2">
+  
     
-    <div class="center footer-copyright deep-purple lighten-1">
+    <div class="center footer-copyright red lighten-1">
       <div class="container" id="footer-toyswap"><a class="white-text" href="https://github.com/full-stack-project-2/full-stack-project-2">ToySwap <img src="img/GitHubLogo.png" alt="GitHub"></a>
       
       </div>
