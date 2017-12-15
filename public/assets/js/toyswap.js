@@ -1,8 +1,9 @@
-//alert("hi");
+alert("hi");
 $(document).ready(function() {
-  $("select").material_select();
+  $('select').material_select();
+  $('.parallax').parallax();
 
-// for HTML5 "required" attribute
+  // for HTML5 "required" attribute
   $("select[required]").css({
     display: "inline",
     height: 0,
@@ -10,13 +11,10 @@ $(document).ready(function() {
     width: 0
   });
 
-//MODAL action function-------------------//
-  $('.modal').modal();
+ 
 });
 
-
-  
-//FIXED MENU BUTTON FUNCTIONS-------------//
+//FIXED MENU BUTTON-------------//
 $('.fixed-action-btn').openFAB();
 $('.fixed-action-btn').closeFAB();
 $('.fixed-action-btn.toolbar').openToolbar();

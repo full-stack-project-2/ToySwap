@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -6,7 +5,21 @@ nav .brand-logo {
 
 h1{
   font-family: 'Suez One', serif;
-  font-size: 220px;
+  font-size: 250px;
+  text-shadow: 3px 2px #f88b89;
+    margin-top: 8%;
+}
+body{
+background-color: #e5dbdb;
+background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H20v-1.5zM0 20h2v20H0V20zm4 0h2v20H4V20zm4 0h2v20H8V20zm4 0h2v20h-2V20zm4 0h2v20h-2V20zm4 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2zm0 4h20v2H20v-2z' fill='%23f00404' fill-opacity='0.14' fill-rule='evenodd'/%3E%3C/svg%3E");
+} 
+
+/*#toy-group{
+  background-image: url("../img/toy-group.jpg");
+}*/
+
+.page-footer{
+  background-image: url("../img/tweed.png");
 }
 
 #footer-toyswap{
@@ -15,10 +28,10 @@ h1{
   color: white;
 }
 #footer-toyswap img{
-  background-color: #7e57c2; 
+   
   height: 18px;
   width: 75px;
-  margin-top: 9px;
+  margin-top: 10px;
 
 }
 
@@ -42,7 +55,7 @@ text-align: center;
 
 
 .material-icons {
-  color: #7e57c2;
+  color: #ef5350;
   }
 
 p {
@@ -54,28 +67,46 @@ p {
 }
 
 .parallax-container {
-  min-height: 100%;
-  line-height: 0;
-  height: auto;
+  min-height: 50vh;
+  min-width: 101%;
+  right: 1%;
   /*background-color: #64ffda;*/
-  background: rgba(100,255,218,1);
+  /*background: rgba(100,255,218,1);
 background: -moz-linear-gradient(top, rgba(100,255,218,1) 0%, rgba(100,255,218,1) 6%, rgba(100,255,218,1) 13%, rgba(126,87,194,1) 93%, rgba(126,87,194,1) 100%);
 background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(100,255,218,1)), color-stop(6%, rgba(100,255,218,1)), color-stop(13%, rgba(100,255,218,1)), color-stop(93%, rgba(126,87,194,1)), color-stop(100%, rgba(126,87,194,1)));
 background: -webkit-linear-gradient(top, rgba(100,255,218,1) 0%, rgba(100,255,218,1) 6%, rgba(100,255,218,1) 13%, rgba(126,87,194,1) 93%, rgba(126,87,194,1) 100%);
 background: -o-linear-gradient(top, rgba(100,255,218,1) 0%, rgba(100,255,218,1) 6%, rgba(100,255,218,1) 13%, rgba(126,87,194,1) 93%, rgba(126,87,194,1) 100%);
 background: -ms-linear-gradient(top, rgba(100,255,218,1) 0%, rgba(100,255,218,1) 6%, rgba(100,255,218,1) 13%, rgba(126,87,194,1) 93%, rgba(126,87,194,1) 100%);
 background: linear-gradient(to bottom, rgba(100,255,218,1) 0%, rgba(100,255,218,1) 6%, rgba(100,255,218,1) 13%, rgba(126,87,194,1) 93%, rgba(126,87,194,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#64ffda', endColorstr='#7e57c2', GradientType=0 );
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#64ffda', endColorstr='#7e57c2', GradientType=0 );*/
 }
-.parallax-container .section {
+/*.parallax-container .section {
   width: 100%;
-  }
+  }*/
+
+  video#toyswap-vid { 
+     
+    
+    right: 10%;
+    
+    
+
+}
 
 .fixed-action-btn{
 top: 24px; 
 left: 24px; 
 height: 50px;
 width: 50px;
+
+}
+
+#menu-btn{
+filter: url("#goo");
+}
+
+svg{
+  margin: -21vh;
 }
 
 
@@ -94,13 +125,13 @@ text-align: center;
 @media only screen and (max-width : 1200px) {
   .parallax-container .section {
     position: absolute;
-    top: 40%;
+    top: 20%;
 
   
   }
   #toyswap-title {
     font-size: 160px;
-    margin-top: 25%;
+    margin-top: 15%;
   }
   #index-banner .section {
     top: 10%;
@@ -111,12 +142,26 @@ text-align: center;
 @media only screen and (max-width : 800px) {
   #toyswap-title {
   font-size: 60px;
-  margin-top: 40%;
+  margin-top: 25%;
 }
   #index-banner .section {
     top: 10%;
   }
+  
 }
+
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
 /*-------------------------------------------*/
 
 .icon-block {
@@ -129,7 +174,6 @@ text-align: center;
 footer.page-footer {
   margin: 0;
 }
-=======
 .viewImg {
     height: 400px;
     width: 400px;
@@ -232,4 +276,3 @@ footer.page-footer {
     text-decoration: underline;
 }
 
->>>>>>> master
