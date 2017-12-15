@@ -1,4 +1,4 @@
-alert("hi");
+//alert("hi");
 $(document).ready(function() {
   $('select').material_select();
   $('.parallax').parallax();
@@ -13,9 +13,20 @@ $(document).ready(function() {
 
  
 });
+	
 
 //FIXED MENU BUTTON-------------//
 $('.fixed-action-btn').openFAB();
 $('.fixed-action-btn').closeFAB();
 $('.fixed-action-btn.toolbar').openToolbar();
 $('.fixed-action-btn.toolbar').closeToolbar();
+
+//Fixed Menu Button functions----//
+$(".fixed-action-btn").on("click", function(){		
+  
+  alert("hi");
+
+  $.get("/about").done(function (data) {		
+    window.location.replace("/about");
+  });	
+});
