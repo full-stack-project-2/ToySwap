@@ -13,8 +13,8 @@ $(document).ready(function () {
               }
 
             $.post("/login", user, function(){
-                window.location.href = "/products";
-            }).then(function(data){
+                // window.location.href = "/list";
+            }).then(function(){
                 console.log('');
             });
             //$("#username").val("");

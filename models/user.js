@@ -58,8 +58,3 @@ module.exports = function (sequelize, DataTypes) {
   });
   return User;
 };
-
-// User
-// City/ State
-// email
-// // Wish list /UPDATE Tbl SET Col = Col + 'suffix' WHERE ...

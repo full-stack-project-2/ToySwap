@@ -38,15 +38,15 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
   });
   // need a userID because without it (after a user logs in) we can't insert into the database "notNull Violation: Inventory.UserId cannot be null"
-  // Inventory.associate = function(models) {
-  //   // We're saying that a Post should belong to an Author
-  //   // A Post can't be created without an Author due to the foreign key constraint
-  //   Inventory.belongsTo(models.User, {
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
+  Inventory.associate = function(models) {
+    // We're saying that a Post should belong to an Author
+    // A Post can't be created without an Author due to the foreign key constraint
+    Inventory.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   // inven = Inventory;
   return Inventory;
 };

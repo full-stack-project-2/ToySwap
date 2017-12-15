@@ -138,20 +138,6 @@ SVG attempt************************** -->
 
                     <h4>Toy Div? Put each item in it's own card?</h4>
                     
-            <h2>Data from DB</h2>
-            {{#each inventory}}
-            <div class="toyDiv">
-                <ul>
-                    <li>{{title}}</li>
-                    <li>{{product_condition}}</li>
-                    <li>{{availability}}</li>
-                    <li>${{price}}</li>
-                    <li>{{url}}</li>
-                    <li>{{description}}</li>
-                </ul>
-            </div>
-            <button class="btn btn-info view" id="btn-{{id}}-{{UserID}}">View</button>
-            {{/each}}
             
                     <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam
                         pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros
@@ -266,6 +252,16 @@ SVG attempt************************** -->
             </div>
         </div>
     </footer>
+
+
+    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    {{!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> --}}
+    {{!-- <script src="assets/js/toyswap.js"></script> --}}
+    {{!-- <script src="assets/js/init.js"></script> --}}
+    {{!-- <script src="assets/js/materialize.js"></script> --}}
+    <script src="/assets/js/home.js"></script>
     <div class="hiddendiv common"></div>
     <div class="drag-target" data-sidenav="nav-mobile" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
 
