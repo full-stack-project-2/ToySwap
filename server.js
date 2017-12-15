@@ -12,7 +12,7 @@ const flash = require('connect-flash');
 const app = express();
 const passport = require("./config/passport");
 const session = require("express-session");
-const PORT = process.env.PORT || 8070;
+const PORT = process.env.PORT || 8080;
 
 
 
