@@ -38,27 +38,6 @@
         </nav>
     </div>
 </div>
-<div class="image">
-    <img src="assets/img/starwars.jpg" alt="Mountain View" id="imageOne" width=100% height="700">
-    <h1 class="centered">The simplest way to
-        <br> trade your toys
-        <br>
-        <br>
-
-        <div class="nav-wrapper">
-            <form>
-                <div class="input-field">
-                    <input id="search" type="search" required>
-                    <label class="label-icon" for="search">
-                        <i class="material-icons">search</i>
-                    </label>
-                    <i class="material-icons">close</i>
-                </div>
-            </form>
-        </div>
-</div>
-</div>
-
 <div class="box-contianer">
     <div class="section">
         <div class="image">
@@ -81,135 +60,135 @@
                 </form>
         </div>
     </div>
+</div>
 
-    <div class="box-contianer">
-        <div class="section holder">
-            <div class="row" id="rowOne">
-                {{#each inventory}}
-                <div class="col s6" style="border: 1px solid lightgrey; border-radius: 5px; width: 230px">
-                    <div class="item-container">
-                        <div class="item-pic">
-                            <a href="/toy/{{id}}" class="opa-hover">
-                                <img class="vertical-middle" width="200" height="160" src="{{url}}" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-                            </a>
-                        </div>
-                        <div class="item-info">
-                            <div class="item-info-title">
-                                <a href="/toy/{{id}}">{{title}}</a>
-                            </div>
-                            <div class="item-info-price">${{price}}</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>{{availability}} in stock
-                            </div>
-                            <div class="item-info-condition">{{product_condition}}</div>
-                        </div>
-                        <a href="/toy/{{id}}" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px; margin-bottom: 10px">
-                                <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg"
-                                        width="30" height="30" alt=" ">
-                                </div>
-                                Username : {{User.username}}
-                                <div class="col s2">
-                                    <a href="#">
-                                        <i class="material-icons" style="border: 1px solid lightgrey; border-radius: 2px">share</i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="material-icons" style="border: 1px solid lightgrey; border-radius: 2px">favorite_border</i>
-                                    </a>
-                                </div>
-                            </div>
+<div class="box-contianer">
+    <div class="section holder">
+        <div class="row" id="rowOne">
+            {{#each inventory}}
+            <div class="col s6" style="border: 1px solid lightgrey; border-radius: 5px; width: 230px">
+                <div class="item-container">
+                    <div class="item-pic">
+                        <a href="/toy/{{id}}" class="opa-hover">
+                            <img class="vertical-middle" width="200" height="160" src="{{url}}" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
                         </a>
                     </div>
+                    <div class="item-info">
+                        <div class="item-info-title">
+                            <a href="/toy/{{id}}">{{title}}</a>
+                        </div>
+                        <div class="item-info-price">${{price}}</div>
+                        <div class="item-info-distance">
+                            <i class="ss-location"></i>{{availability}} in stock
+                        </div>
+                        <div class="item-info-condition">{{product_condition}}</div>
+                    </div>
+                    <a href="/toy/{{id}}" class="bold">
+                        <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px; margin-bottom: 10px">
+                            <div class="owner-info-pic">
+                                <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg"
+                                    width="30" height="30" alt=" ">
+                            </div>
+                            Username : {{User.username}}
+                            <div class="col s2">
+                                <a href="#">
+                                    <i class="material-icons" style="border: 1px solid lightgrey; border-radius: 2px">share</i>
+                                </a>
+                                <a href="#">
+                                    <i class="material-icons" style="border: 1px solid lightgrey; border-radius: 2px">favorite_border</i>
+                                </a>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                {{/each}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<ul class="pagination" id="page-number">
+    <li class="disabled">
+        <a href="#!">
+            <i class="material-icons">chevron_left</i>
+        </a>
+    </li>
+    <li class="deep-purple lighten-1 loaded">
+        <a href="#!">1</a>
+    </li>
+    <li class="waves-effect">
+        <a href="#!">2</a>
+    </li>
+    <li class="waves-effect">
+        <a href="#!">3</a>
+    </li>
+    <li class="waves-effect">
+        <a href="#!">4</a>
+    </li>
+    <li class="waves-effect">
+        <a href="#!">5</a>
+    </li>
+    <li class="waves-effect">
+        <a href="#!">
+            <i class="material-icons">chevron_right</i>
+        </a>
+    </li>
+</ul>
+
+
+<footer class="page-footer teal lighten-1">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">ToySwap</h5>
+                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help
+                    support and continue development on this project and is greatly appreciated.</p>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Settings</h5>
+                <ul>
+                    <li>
+                        <a class="white-text" href="#!">Link 1</a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="#!">Link 4</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Connect</h5>
+                <ul>
+                    <li>
+                        <a class="white-text" href="#!">Link 1</a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="#!">Link 4</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
-
-        <ul class="pagination" id="page-number">
-            <li class="disabled">
-                <a href="#!">
-                    <i class="material-icons">chevron_left</i>
-                </a>
-            </li>
-            <li class="deep-purple lighten-1 loaded">
-                <a href="#!">1</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">2</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">3</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">4</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">5</a>
-            </li>
-            <li class="waves-effect">
-                <a href="#!">
-                    <i class="material-icons">chevron_right</i>
-                </a>
-            </li>
-            </ul>
-
-
-            <footer class="page-footer teal lighten-1">
-                <div class="container">
-                    <div class="row">
-                        <div class="col l6 s12">
-                            <h5 class="white-text">ToySwap</h5>
-                            <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount
-                                would help support and continue development on this project and is greatly appreciated.</p>
-                        </div>
-                        <div class="col l3 s12">
-                            <h5 class="white-text">Settings</h5>
-                            <ul>
-                                <li>
-                                    <a class="white-text" href="#!">Link 1</a>
-                                </li>
-                                <li>
-                                    <a class="white-text" href="#!">Link 2</a>
-                                </li>
-                                <li>
-                                    <a class="white-text" href="#!">Link 3</a>
-                                </li>
-                                <li>
-                                    <a class="white-text" href="#!">Link 4</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col l3 s12">
-                            <h5 class="white-text">Connect</h5>
-                            <ul>
-                                <li>
-                                    <a class="white-text" href="#!">Link 1</a>
-                                </li>
-                                <li>
-                                    <a class="white-text" href="#!">Link 2</a>
-                                </li>
-                                <li>
-                                    <a class="white-text" href="#!">Link 3</a>
-                                </li>
-                                <li>
-                                    <a class="white-text" href="#!">Link 4</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-copyright">
-                    <div class="container">
-                        Made by
-                        <a class="orange-text text-lighten-3" href="http://materializecss.com">ToySwap</a>
-                    </div>
-                </div>
-            </footer>
-            <!--  Scripts-->
-            <div class="hiddendiv common"></div>
-            <div class="drag-target" data-sidenav="nav-mobile" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>
-            <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-            <script src="assets/js/list.js"></script>
-   
+    <div class="footer-copyright">
+        <div class="container">
+            Made by
+            <a class="orange-text text-lighten-3" href="http://materializecss.com">ToySwap</a>
+        </div>
+    </div>
+</footer>
+<!--  Scripts-->
+<div class="hiddendiv common"></div>
+<div class="drag-target" data-sidenav="nav-mobile" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="assets/js/list.js"></script>
