@@ -1,494 +1,158 @@
 <div id="nav">
-	<div class="navbar-fixed">
-    <nav class="deep-purple lighten-1 loaded" role="navigation">
-        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">ToySwap</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="/home">Home</a></li>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/home">About </a></li>
-                <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light"><i class="mdi-social-notifications"></i></a>
-                </li>
-                <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
-                </li>
-            </ul>
-            <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
-                <li><a href="#">Navbar Link</a></li>
-            </ul>
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        </div>
-    </nav>
+    <div class="navbar-fixed">
+        <nav class="deep-purple lighten-1 loaded" role="navigation">
+            <div class="nav-wrapper container">
+                <a id="logo-container" href="#" class="brand-logo">ToySwap</a>
+                <ul class="right hide-on-med-and-down">
+                    <li>
+                        <a href="/home">Home</a>
+                    </li>
+                    <li>
+                        <a href="/login">Login</a>
+                    </li>
+                    <li>
+                        <a href="/home">About </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="waves-effect waves-block waves-light">
+                            <i class="mdi-social-notifications"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse">
+                            <i class="mdi-communication-chat"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+                    <li>
+                        <a href="#">Navbar Link</a>
+                    </li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse">
+                    <i class="material-icons">menu</i>
+                </a>
+            </div>
+        </nav>
     </div>
-    </div>
+</div>
 
-    	<div class="image">
-        <img src="assets/img/starwars.jpg" alt="Mountain View" id="imageOne" width="1200" height="650">       
-         
-            <h1 class="centered">The simplest way to 
-            <br>
-            trade your toys
-            <br>
-            <br>
+<div class="image">
+    <img src="assets/img/starwars.jpg" alt="Mountain View" id="imageOne" width="1200" height="650">
+
+    <h1 class="centered">The simplest way to
+        <br> trade your toys
+        <br>
+        <br>
 
 
-            <form>
-        		<div class="input-field">
-          			<input id="search" type="search" required>
-          			<label class="label-icon" for="search"><i class="material-icons">search</i></label>
-          				<i class="material-icons">close</i>
-        		</div>
-      		</form>
-      		</div>
-      {{!-- </div> --}}
+        <form>
+            <div class="input-field">
+                <input id="search" type="search" required>
+                <label class="label-icon" for="search">
+                    <i class="material-icons">search</i>
+                </label>
+                <i class="material-icons">close</i>
+            </div>
+        </form>
+</div>
+{{!-- </div> --}}
 
-       <div class="box-contianer">
-        <div class="section holder">
-
-     
+<div class="box-contianer">
+    <div class="section holder">
         <div class="row" id="rowOne">
-            {{#each inventory}} 
-                <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px">
-                    <div class="item-container">
-                        <div class="item-pic"><a href="/toy/{{id}}" class="opa-hover">
-          					<img class="vertical-middle" width="200" height="160" src="{{url}}" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-          						</a></div>
-                        		<div class="item-info">
-                            		<div class="item-info-title">
-                                		<a href="/toy/{{id}}">{{title}}</a>
-                            		</div>
-                            <div class="item-info-price">${{price}}</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>{{availability}} in stock
-                            </div>
-                            <div class="item-info-condition">{{product_condition}}</div>
-                        </div>
-                        <a href="/toy/{{id}}" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px;">
-                                 <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div>
-                                Username : {{User.username}}
-                                <div class="col s2">
-                                    <img src="images/img/yuna.jpg" alt="" class="circle responsive-img">
-                                    
-                                </div>
-                            </div>
+            {{#each inventory}}
+            <div class="col s6" style="border: 1px solid lightgrey; border-radius: 10px; width: 230px">
+                <div class="item-container">
+                    <div class="item-pic">
+                        <a href="/toy/{{id}}" class="opa-hover">
+                            <img class="vertical-middle" width="200" height="160" src="{{url}}" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
                         </a>
                     </div>
+                    <div class="item-info">
+                        <div class="item-info-title">
+                            <a href="/toy/{{id}}">{{title}}</a>
+                        </div>
+                        <div class="item-info-price">${{price}}</div>
+                        <div class="item-info-distance">
+                            <i class="ss-location"></i>{{availability}} in stock
+                        </div>
+                        <div class="item-info-condition">{{product_condition}}</div>
+                    </div>
+                    <a href="/toy/{{id}}" class="bold">
+                        <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px;">
+                            <div class="owner-info-pic">
+                                <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg"
+                                    width="30" height="30" alt=" ">
+                            </div>
+                            Username : {{User.username}}
+                            <div class="col s2">
+                                <img src="images/img/yuna.jpg" alt="" class="circle responsive-img">
+
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                {{/each}}
             </div>
-            <!--
-                 <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px">
-                    <div class="item-container">
-                        <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
-          					<img class="vertical-middle" width="200" height="160" src="https://d2j6tswx2otu6e.cloudfront.net/1uMNMBQ18k4uXJu5aVbdSn0eOcA=/300x225/bf88/bf88856f01174a66b32e1c1f1e0959c1.jpg" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-          						</a></div>
-                        		<div class="item-info">
-                            		<div class="item-info-title">
-                                		<a href="/item/detail/393309062/">AIR CONDITIONER GE 5000btu</a>
-                            		</div>
-                            <div class="item-info-price">$60</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>17 miles · Bronx, NY
-                            </div>
-                        </div>
-                        <a href="/p/29534662/" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px;">
-                                <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div>
-                                <div class="col s2">
-                                    <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                    
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    </div>
-
-                      <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px">
-                    <div class="item-container">
-                        <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
-          					<img class="vertical-middle" width="200" height="160" src="https://d2j6tswx2otu6e.cloudfront.net/1uMNMBQ18k4uXJu5aVbdSn0eOcA=/300x225/bf88/bf88856f01174a66b32e1c1f1e0959c1.jpg" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-          						</a></div>
-                        		<div class="item-info">
-                            		<div class="item-info-title">
-                                		<a href="/item/detail/393309062/">AIR CONDITIONER GE 5000btu</a>
-                            		</div>
-                            <div class="item-info-price">$60</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>17 miles · Bronx, NY
-                            </div>
-                        </div>
-                        <a href="/p/29534662/" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px;">
-                                <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div>
-                                <div class="col s2">
-                                    <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                    
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                        </div>
-
-                        <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px">
-                    <div class="item-container">
-                        <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
-          					<img class="vertical-middle" width="200" height="160" src="https://d2j6tswx2otu6e.cloudfront.net/1uMNMBQ18k4uXJu5aVbdSn0eOcA=/300x225/bf88/bf88856f01174a66b32e1c1f1e0959c1.jpg" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-          						</a></div>
-                        		<div class="item-info">
-                            		<div class="item-info-title">
-                                		<a href="/item/detail/393309062/">AIR CONDITIONER GE 5000btu</a>
-                            		</div>
-                            <div class="item-info-price">$60</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>17 miles · Bronx, NY
-                            </div>
-                        </div>
-                        <a href="/p/29534662/" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px;">
-                                <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div>
-                                <div class="col s2">
-                                    <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                  
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                     <br>
-                    <br>
-                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
 
 
-
-
-
-            {{!-- </div> --}}
-        {{!-- </div>
-        </div> --}}
-
-       <div class="box-contianer">
-        <div class="section">
-           
-            
-   
-     
-
-            <div class="row" id="rowTwo">
-                <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px">
-                    <div class="item-container">
-                        <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
-          					<img class="vertical-middle" width="200" height="160" src="https://d2j6tswx2otu6e.cloudfront.net/1uMNMBQ18k4uXJu5aVbdSn0eOcA=/300x225/bf88/bf88856f01174a66b32e1c1f1e0959c1.jpg" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-          						</a></div>
-                        		<div class="item-info">
-                            		<div class="item-info-title">
-                                		<a href="/item/detail/393309062/">AIR CONDITIONER GE 5000btu</a>
-                            		</div>
-                            <div class="item-info-price">$60</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>17 miles · Bronx, NY
-                            </div>
-                        </div>
-                        <a href="/p/29534662/" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px;">
-                                <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div>
-                                <div class="col s2">
-                                    <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                   
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px">
-                    <div class="item-container">
-                        <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
-          					<img class="vertical-middle" width="200" height="160" src="https://d2j6tswx2otu6e.cloudfront.net/1uMNMBQ18k4uXJu5aVbdSn0eOcA=/300x225/bf88/bf88856f01174a66b32e1c1f1e0959c1.jpg" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-          						</a></div>
-                        		<div class="item-info">
-                            		<div class="item-info-title">
-                                		<a href="/item/detail/393309062/">AIR CONDITIONER GE 5000btu</a>
-                            		</div>
-                            <div class="item-info-price">$60</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>17 miles · Bronx, NY
-                            </div>
-                        </div>
-                        <a href="/p/29534662/" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px">
-                                <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div>
-                                <div class="col s2">
-                                    <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                  
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    </div>
-
-                      <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px">
-                    <div class="item-container">
-                        <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
-          					<img class="vertical-middle" width="200" height="160" src="https://d2j6tswx2otu6e.cloudfront.net/1uMNMBQ18k4uXJu5aVbdSn0eOcA=/300x225/bf88/bf88856f01174a66b32e1c1f1e0959c1.jpg" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-          						</a></div>
-                        		<div class="item-info">
-                            		<div class="item-info-title">
-                                		<a href="/item/detail/393309062/">AIR CONDITIONER GE 5000btu</a>
-                            		</div>
-                            <div class="item-info-price">$60</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>17 miles · Bronx, NY
-                            </div>
-                        </div>
-                        <a href="/p/29534662/" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px">
-                                <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div>
-                                <div class="col s2">
-                                    <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                    
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                        </div>
-
-                        <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px;">
-                    <div class="item-container">
-                        <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
-          					<img class="vertical-middle" width="200" height="160" src="https://d2j6tswx2otu6e.cloudfront.net/1uMNMBQ18k4uXJu5aVbdSn0eOcA=/300x225/bf88/bf88856f01174a66b32e1c1f1e0959c1.jpg" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-          						</a></div>
-                        		<div class="item-info">
-                            		<div class="item-info-title">
-                                		<a href="/item/detail/393309062/">AIR CONDITIONER GE 5000btu</a>
-                            		</div>
-                            <div class="item-info-price">$60</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>17 miles · Bronx, NY
-                            </div>
-                        </div>
-                        <a href="/p/29534662/" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px">
-                                <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div>
-                                <div class="col s2">
-                                    <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                 
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    </div>
-                    </div>
-                    <br>
-                    <br>
-                </div>
+<footer class="page-footer orange">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Company Bio</h5>
+                <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help
+                    support and continue development on this project and is greatly appreciated.</p>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Settings</h5>
+                <ul>
+                    <li>
+                        <a class="white-text" href="#!">Link 1</a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="#!">Link 4</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Connect</h5>
+                <ul>
+                    <li>
+                        <a class="white-text" href="#!">Link 1</a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="#!">Link 4</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            Made by
+            <a class="orange-text text-lighten-3" href="http://materializecss.com">ToySwap</a>
         </div>
+    </div>
 
-        <div class="box-contianer">
-        <div class="section">
-           
-    
-     
-
-            <div class="row" id="rowThree">
-                <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px">
-                    <div class="item-container">
-                        <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
-          					<img class="vertical-middle" width="200" height="160" src="https://d2j6tswx2otu6e.cloudfront.net/1uMNMBQ18k4uXJu5aVbdSn0eOcA=/300x225/bf88/bf88856f01174a66b32e1c1f1e0959c1.jpg" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-          						</a></div>
-                        		<div class="item-info">
-                            		<div class="item-info-title">
-                                		<a href="/item/detail/393309062/">AIR CONDITIONER GE 5000btu</a>
-                            		</div>
-                            <div class="item-info-price">$60</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>17 miles · Bronx, NY
-                            </div>
-                        </div>
-                        <a href="/p/29534662/" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px">
-                                <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div>
-                               
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px">
-                    <div class="item-container">
-                        <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
-          					<img class="vertical-middle" width="200" height="160" src="https://d2j6tswx2otu6e.cloudfront.net/1uMNMBQ18k4uXJu5aVbdSn0eOcA=/300x225/bf88/bf88856f01174a66b32e1c1f1e0959c1.jpg" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-          						</a></div>
-                        		<div class="item-info">
-                            		<div class="item-info-title">
-                                		<a href="/item/detail/393309062/">AIR CONDITIONER GE 5000btu</a>
-                            		</div>
-                            <div class="item-info-price">$60</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>17 miles · Bronx, NY
-                            </div>
-                        </div>
-                        <a href="/p/29534662/" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px">
-                                <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div>
-                              
-                            </div>
-                        </a>
-                    </div>
-                    </div>
-
-                      <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px;">
-                    <div class="item-container">
-                        <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
-          					<img class="vertical-middle" width="200" height="160" src="https://d2j6tswx2otu6e.cloudfront.net/1uMNMBQ18k4uXJu5aVbdSn0eOcA=/300x225/bf88/bf88856f01174a66b32e1c1f1e0959c1.jpg" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-          						</a></div>
-                        		<div class="item-info">
-                            		<div class="item-info-title">
-                                		<a href="/item/detail/393309062/">AIR CONDITIONER GE 5000btu</a>
-                            		</div>
-                            <div class="item-info-price">$60</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>17 miles · Bronx, NY
-                            </div>
-                        </div>
-                        <a href="/p/29534662/" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px">
-                                <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div>
-                               
-                            </div>
-                        </a>
-                    </div>
-
-                        </div>
-
-                        <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px">
-                    <div class="item-container">
-                        <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
-          					<img class="vertical-middle" width="200" height="160" src="https://d2j6tswx2otu6e.cloudfront.net/1uMNMBQ18k4uXJu5aVbdSn0eOcA=/300x225/bf88/bf88856f01174a66b32e1c1f1e0959c1.jpg" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
-          						</a></div>
-                        		<div class="item-info">
-                            		<div class="item-info-title">
-                                		<a href="/item/detail/393309062/">AIR CONDITIONER GE 5000btu</a>
-                            		</div>
-                            <div class="item-info-price">$60</div>
-                            <div class="item-info-distance">
-                                <i class="ss-location"></i>17 miles · Bronx, NY
-                            </div>
-                        </div>
-                        <a href="/p/29534662/" class="bold">
-                            <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px">
-                                <div class="owner-info-pic">
-                                    <img class="avatar vertical-middle" src="https://d2j6tswx2otu6e.cloudfront.net/p-3dXNhNt7gDC1qs2dwNcLYM0mQ=/100x100/smart/744b/o29534662_49196.jpg" width="30" height="30" alt=" ">
-                                </div>
-                                <div class="col s2">
-                                    <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    </div>
-                    </div>
-                    <br>
-                    <br>
-                </div>
-            </div> -->
-        </div>
-        </div> 
-
-
-        <footer class="page-footer orange">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Company Bio</h5>
-                        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-                    </div>
-                    <div class="col l3 s12">
-                        <h5 class="white-text">Settings</h5>
-                        <ul>
-                            <li><a class="white-text" href="#!">Link 1</a></li>
-                            <li><a class="white-text" href="#!">Link 2</a></li>
-                            <li><a class="white-text" href="#!">Link 3</a></li>
-                            <li><a class="white-text" href="#!">Link 4</a></li>
-                        </ul>
-                    </div>
-                    <div class="col l3 s12">
-                        <h5 class="white-text">Connect</h5>
-                        <ul>
-                            <li><a class="white-text" href="#!">Link 1</a></li>
-                            <li><a class="white-text" href="#!">Link 2</a></li>
-                            <li><a class="white-text" href="#!">Link 3</a></li>
-                            <li><a class="white-text" href="#!">Link 4</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">ToySwap</a>
-                </div>
-            </div>
-            
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="assets/js/list.js"></script>
-        </footer>
-        <div class="hiddendiv common"></div>
-        <div class="drag-target" data-sidenav="nav-mobile" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                {{!-- {{#each inventory}}
-            <div class="toyDiv">
-                <ul>
-                    <li>{{title}}</li>
-                    <li>{{product_condition}}</li>
-                    <li>{{availability}}</li>
-                    <li>${{price}}</li>
-                    <li>{{url}}</li>
-                    <li>{{description}}</li>
-                </ul>
-                <button class="btn btn-info view" id="btn-{{id}}-{{UserID}}">View</button>
-            </div>
-            {{/each}} --}}
+</footer>
+<div class="hiddendiv common"></div>
+<div class="drag-target" data-sidenav="nav-mobile" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>
