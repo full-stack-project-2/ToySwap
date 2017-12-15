@@ -1,126 +1,151 @@
-<html lang="en">
 
+<!--
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ToySwap</title>
     <!--LINKS*********************************--->
     <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {{!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> --}}
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> --}}
 
     <!--Font Link for ToySwap on Parallax-->
-    <link href="https://fonts.googleapis.com/css?family=Suez+One" rel="stylesheet">
-    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
-</head>
-
-<body>
+    {{!-- <link href="https://fonts.googleapis.com/css?family=Suez+One" rel="stylesheet"> --}}
+    {{!-- <link href="/assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"> --}}
+{{!-- </head> --}}
 
 
-    <div class="fixed-action-btn horizontal click-to-toggle">
-        <a class="btn-floating btn-large deep-purple lighten-1">
+
+
+    <div id="menu-btn" class="fixed-action-btn horizontal click-to-toggle">
+        <a class="btn-floating btn-large red lighten-1">
             <i class="material-icons">menu</i>
         </a>
         <ul>
             <li>
-                <a class="btn-floating deep-purple lighten-1">
-                    <i class="material-icons">insert_chart</i>
+                <a class="btn-floating red lighten-1">
+                    <i class="material-icons" title="Home">home</i>
                 </a>
             </li>
             <li>
-                <a class="btn-floating deep-purple lighten-1">
-                    <i class="material-icons">format_quote</i>
+                <a class="btn-floating red lighten-1">
+                    <i class="material-icons" title="About Us">grade</i>
                 </a>
             </li>
             <li>
-                <a class="btn-floating deep-purple lighten-1">
-                    <i class="material-icons">publish</i>
+                <a class="btn-floating red lighten-1">
+                    <i class="material-icons" title="Products">apps</i>
                 </a>
             </li>
             <li>
-                <a class="btn-floating deep-purple lighten-1">
-                    <i class="material-icons">attach_file</i>
+                <a class="btn-floating red lighten-1">
+                    <i class="material-icons" title="Profile">face</i>
                 </a>
             </li>
         </ul>
     </div>
 
 
+<div class="parallax-container">
+<!--SVG attempt************************** 
+      <svg>
+<defs>
+<filter id="goo">
+  <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+  <feColorMatrix in="blur" result="colormatrix"
+        type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 0 0 0
+                0 0 0 18 -6" />
+  <feBlend in="SourceGraphic" in2="colormatrix">
 
-    <div id="index-banner" class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <br>
-                <br>
-                <h1 id="toyswap-title" class="header center white-text text-lighten-2">ToySwap</h1>
-            </div>
-        </div>
-
-        <div class="parallax">
-            <img src="#" alt="Unsplashed background img 1" style="display: block; transform: translate3d(-50%, 15px, 0px);">
-        </div>
+</filter>
+</defs>
+</svg>
+SVG attempt************************** -->
+    <div class="parallax">
+        <video autoplay loop id="toyswap-vid">
+            <source class ="vid" src="/assets/mov/Toy_train.mp4" type="video/mp4">
+        </video>
     </div>
 
-
-
-    <div class="container">
-        <div class="section">
-            <div class="col s12 center">
-                <div class="icon-block">
-                    <h2 class="center">
-                        <i class="material-icons">settings</i>
-                    </h2>
-                    <h5 class="center">How ToySwap Works</h5>
-
-                    <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam
-                        pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros
-                        justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget,
-                        bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla
-                        imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam
-                        eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et
-                        ultrices posuere cubilia Curae;</p>
-                </div>
+    <h1 id="toyswap-title" class="header center white-text text-lighten-2">ToySwap</h1>
+  </div>
 
 
 
-                <div class="row">
-                    <div class="col s12 m6" id="open-buttons">
-                        <a class="waves-effect waves-light btn modal-trigger deep-purple lighten-1" id="register-button" href="/register">Register</a>
 
-                        <!-- Modal Structure -->
-                        <div id="modal1" class="modal modal-fixed-footer">
-                            <div class="modal-content">
-                                <h4>Modal Header</h4>
-                                <p>A bunch of text</p>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="/register" class="modal-action modal-close waves-effect waves-green btn-flat">Register</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s12 m6" id="open-buttons">
-                        <!-- Modal Trigger -->
-                        <a class="waves-effect waves-light btn modal-trigger deep-purple lighten-1" id="login-button" href="/login">Login</a>
+  <div class="container">
+    <div class="section">
+       
 
-                        <!-- Modal Structure -->
-                        <div id="modal2" class="modal modal-fixed-footer">
-                            <div class="modal-content">
-                                <h4>Login Header</h4>
-                                <p>A bunch of text</p>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="/login" class="modal-action modal-close waves-effect waves-green btn-flat ">Login</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="col s12 center">
+          <div class="icon-block">
+            <h2 class="center"><i class="material-icons">settings</i></h2>
+            <h5 class="center">How ToySwap Works</h5>
+
+            <p class="light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+          </div>
+          
 
 
-            </div>
+          <div class="row">
+          <div class="col s12 m6" id="open-buttons">
+  <a class="waves-effect waves-light btn modal-trigger red lighten-1" id="register-button" href="#modal1">Register</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+  <div class="modal-content">
+  <h4>Registration Page</h4>
+  <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Register</a>
+  </div>
+  </div>
+          </div>
+          <div class="col s12 m6" id="open-buttons">
+          <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger red lighten-1" id="login-button" href="#modal2">Login</a>
+
+  <!-- Modal Structure -->
+  <div id="modal2" class="modal modal-fixed-footer">
+  <div class="modal-content">
+  <h4>Login Page</h4>
+  <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Login</a>
+  </div>
+  </div>
+          </div>
+          </div>
+
+
+
+
 
         </div>
+
+        </div>
+</div>
+
+
+
+  
+  <div class="parallax-container" id="toy-group">
+    <div class="parallax">
+        <img src="assets/img/toy-group.jpg">
     </div>
+  </div>  
+
+  
+       
+
+  
+ 
 
 
 
@@ -132,7 +157,7 @@
                 <div class="col s12 center">
 
                     <h4>Toy Div? Put each item in it's own card?</h4>
-                    <!--
+                    
             <h2>Data from DB</h2>
             {{#each inventory}}
             <div class="toyDiv">
@@ -161,7 +186,7 @@
         </div>
     </div>
 
-
+<!--
 
     <div class="container">
         <h4 class="center">Upload an Item!</h4>
@@ -217,7 +242,9 @@
             </form>
         </div>
     </div>
-    <footer class="page-footer teal accent-2">
+    
+    -->
+    <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12" id="group-div">
@@ -250,7 +277,7 @@
                 </div>
             </div>
         </div>
-        <div class="center footer-copyright deep-purple lighten-1">
+        <div class="center footer-copyright red lighten-1">
             <div class="container" id="footer-toyswap">
                 <a class="white-text" href="https://github.com/full-stack-project-2/full-stack-project-2">ToySwap
                     <img src="assets/img/github.png" alt="GitHub">
@@ -263,18 +290,20 @@
 
     <!--  SCRIPTS ************************-->
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!--
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="assets/js/toyswap.js"></script>
-    {{!-- <script src="assets/js/init.js"></script> --}}
-    {{!-- <script src="assets/js/materialize.js"></script> --}}
-    <script src="/assets/js/home.js"></script>
+    <script src="../public/assets/js/toyswap.js"></script>
+    <script src="../public/assets/js/init.js"></script> 
+    <script src="../public/assets/js/materialize.js"></script>
+    <script src="../public/assets/js/home.js"></script>
     <div class="hiddendiv common"></div>
     <div class="drag-target" data-sidenav="nav-mobile" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>
 
-</body>
 
-</html>
+-->
 
-</div>
+
+
 
