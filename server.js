@@ -72,8 +72,8 @@ db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     db.User.create({
       email: "walmart@walmart.com",
-      username: "walmart",
-      password: "walmart",
+      username: "Walmart",
+      password: "Walmart",
     }).then(function (walmart) {
     });
     console.log("App listening on PORT " + PORT);
