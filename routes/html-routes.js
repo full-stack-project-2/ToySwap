@@ -35,7 +35,7 @@ module.exports = function (app) {
   });
 
   // If user is authenticated, they may proceed to the list of all products, otherwise they are sent back the login page
-  app.get("/login", isAuthenticated, function (req, res) {  
+  app.get("/login", function (req, res) {  
     if (req.user)
       res.redirect("/list");
     else
