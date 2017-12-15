@@ -10,6 +10,7 @@ module.exports = function (app) {
       username: req.body.username,
       password: req.body.password
     }).then(function () {
+      // User is passed login endpoint to be authenticated in the html routes file
       res.redirect(307, "/login");
     }).catch(function (err) {
       console.log(err);

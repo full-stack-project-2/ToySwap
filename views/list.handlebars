@@ -40,31 +40,15 @@
       		</div>
       {{!-- </div> --}}
 
-<h1>allProducts</h1>
-<div class='bDivs'>
-        {{#each inventory}} 
-            <div>
-                <img src="{{url}}" alt="img not found" style="height:300px;width:300px">
-                <div>{{title}}</div>
-                <div>${{price}}</div>
-                {{id}}{{UserId}}
-            </div>
-        {{/each}}
-    </div>
-
-
-
-
-
-
        <div class="box-contianer">
         <div class="section holder">
 
-    
- <div class="row" id="rowOne">
+     
+        <div class="row" id="rowOne">
+            {{#each inventory}} 
                 <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px">
                     <div class="item-container">
-                        <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
+                        <div class="item-pic"><a href="/toy/{{id}}" class="opa-hover">
           					<img class="vertical-middle" width="200" height="160" src="{{url}}" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
           						</a></div>
                         		<div class="item-info">
@@ -75,7 +59,7 @@
                             <div class="item-info-distance">
                                 <i class="ss-location"></i>{{availability}} in stock
                             </div>
-                            <div class="item-info-condition">${{price}}</div>{{product_condition}}</div>
+                            <div class="item-info-condition">{{product_condition}}</div>
                         </div>
                         <a href="/toy/{{id}}" class="bold">
                             <div class="owner-info" style="border-top: 1px solid rgb(216, 216, 216); width: 200px;">
@@ -90,7 +74,10 @@
                             </div>
                         </a>
                     </div>
-                
+                </div>
+                {{/each}}
+            </div>
+            <!--
                  <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px">
                     <div class="item-container">
                         <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
@@ -431,7 +418,7 @@
                     <br>
                     <br>
                 </div>
-            </div>
+            </div> -->
         </div>
         </div> 
 

@@ -1,11 +1,5 @@
 $(document).ready(function () {
-    // $("#click").on("click", function(){
-        // $.get("/getAllProducts", function(data) {
-        //     // window.location.href="/getAllProducts";
-        //     //  window.location.replace("/list");
-        //     // console.log(data);	
-        // });
-
+    
     // let holder = $(".holder");
     // $.get("/get-back-data", function(newdata) {
     //     console.log(newdata);  
