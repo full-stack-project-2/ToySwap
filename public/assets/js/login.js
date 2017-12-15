@@ -13,7 +13,7 @@ $(document).ready(function () {
               }
 
             $.post("/login", user, function(){
-                window.location.href = "/list";
+                // window.location.href = "/list";
             }).then(function(){
                 console.log('');
             });

@@ -20,29 +20,36 @@ module.exports = function (app) {
   });
 
   app.get("/loginErr", function (req, res) {    
-    req.flash('info', 'Flash is back!')
+    res.flash('info', 'Flash is back!')
     res.render('login',{errMsg: 'INCORRECT USERNAME/PASSWORD'});
   });
 
-  app.get("/login", function (req, res) {    
+  app.get("/login", isAuthenticated, function (req, res) {
+    // console.log("GET!");    
     if (req.user)
-      res.redirect("/list");
+      res.render("list");
     else
-      res.render("login");
-      
+      res.render("login"); 
   });
+  
   app.get("/register", function (req, res) {
     res.render("register");
   });
 
 
-  app.get("/list", isAuthenticated, function (req, res) {    
-    if (req.user)
-      res.render("list");
-    else
-      res.render("login");
-  });
+  // app.get("/list", isAuthenticated, function (req, res) {    
+  //   if (req.user) 
+  //     res.render("list");
+  //   else
+  //     res.render("login");
+  // });
 
+  // app.get("/inventory", isAuthenticated, function (req, res) {    
+  //   if (req.user)
+  //     res.render("list");
+  //   else
+  //     res.render("login");
+  // });
   
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the products page.

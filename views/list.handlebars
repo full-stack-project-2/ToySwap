@@ -40,33 +40,28 @@
       		</div>
       {{!-- </div> --}}
 
-      <div class="box-contianer">
-        <div class="section">
-            <!--   Icon Section   -->
-            
-   
-                        
-            {{!-- <div class="toyDiv">
-                <ul>
-                    <li>{{title}}</li>
-                    <li>{{product_condition}}</li>
-                    <li>{{availability}}</li>
-                    <li>${{price}}</li>
-                    <li>{{url}}</li>
-                    <li>{{description}}</li>
-                </ul>
-                <button class="btn btn-info view" id="btn-{{id}}-{{UserID}}">View</button>
-            </div> --}}
-{{#each toys}}
-    <h2>{{id}}</h2>
-     <h2>{{title}}</h2>
-     <h2>{{price}}</h2>
-    
-  {{/each}}
+<h1>allProducts</h1>
+<div class='bDivs'>
+        {{#each inventory}} 
+            <div>
+                <img src="{{url}}" alt="img not found" style="height:300px;width:300px">
+                <div>{{title}}</div>
+                <div>${{price}}</div>
+                {{id}}{{UserId}}
+            </div>
+        {{/each}}
+    </div>
 
-  
-    {{!-- {{#each toys}} --}}
-            <div class="row" id="rowOne">
+
+
+
+
+
+       <div class="box-contianer">
+        <div class="section holder">
+
+    
+ <div class="row" id="rowOne">
                 <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px">
                     <div class="item-container">
                         <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
@@ -89,15 +84,14 @@
                                 </div>
                                 Username : {{username}}
                                 <div class="col s2">
-                                    <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                    <!-- notice the "circle" class -->
+                                    <img src="images/img/yuna.jpg" alt="" class="circle responsive-img">
+                                    
                                 </div>
                             </div>
                         </a>
                     </div>
                 
-                 {{!-- {{/each}} --}}
-                {{!-- <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px">
+                 <div class="col s6"  style="border: 1px solid lightgrey; border-radius: 10px; width: 230px; margin-left: 10px">
                     <div class="item-container">
                         <div class="item-pic"><a href="/item/detail/393309062/" class="opa-hover">
           					<img class="vertical-middle" width="200" height="160" src="https://d2j6tswx2otu6e.cloudfront.net/1uMNMBQ18k4uXJu5aVbdSn0eOcA=/300x225/bf88/bf88856f01174a66b32e1c1f1e0959c1.jpg" alt="AIR CONDITIONER GE 5000btu" style="margin-top: 10px">
@@ -118,7 +112,7 @@
                                 </div>
                                 <div class="col s2">
                                     <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                    <!-- notice the "circle" class -->
+                                    
                                 </div>
                             </div>
                         </a>
@@ -146,7 +140,7 @@
                                 </div>
                                 <div class="col s2">
                                     <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                    <!-- notice the "circle" class -->
+                                    
                                 </div>
                             </div>
                         </a>
@@ -175,7 +169,7 @@
                                 </div>
                                 <div class="col s2">
                                     <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                    <!-- notice the "circle" class -->
+                                  
                                 </div>
                             </div>
                         </a>
@@ -185,7 +179,7 @@
                     </div>
                      <br>
                     <br>
-                </div> --}}
+                </div>
 
 
 
@@ -195,9 +189,9 @@
         {{!-- </div>
         </div> --}}
 
-        {{!-- <div class="box-contianer">
+       <div class="box-contianer">
         <div class="section">
-            <!--   Icon Section   -->
+           
             
    
      
@@ -224,7 +218,7 @@
                                 </div>
                                 <div class="col s2">
                                     <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                    <!-- notice the "circle" class -->
+                                   
                                 </div>
                             </div>
                         </a>
@@ -252,7 +246,7 @@
                                 </div>
                                 <div class="col s2">
                                     <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                    <!-- notice the "circle" class -->
+                                  
                                 </div>
                             </div>
                         </a>
@@ -280,7 +274,7 @@
                                 </div>
                                 <div class="col s2">
                                     <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                    <!-- notice the "circle" class -->
+                                    
                                 </div>
                             </div>
                         </a>
@@ -309,7 +303,7 @@
                                 </div>
                                 <div class="col s2">
                                     <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                    <!-- notice the "circle" class -->
+                                 
                                 </div>
                             </div>
                         </a>
@@ -325,7 +319,7 @@
 
         <div class="box-contianer">
         <div class="section">
-            <!--   Icon Section   -->
+           
     
      
 
@@ -427,7 +421,7 @@
                                 </div>
                                 <div class="col s2">
                                     <img src="images/yuna.jpg" alt="" class="circle responsive-img">
-                                    <!-- notice the "circle" class -->
+                                
                                 </div>
                             </div>
                         </a>
@@ -439,9 +433,7 @@
                 </div>
             </div>
         </div>
-        </div> --}}
-
-
+        </div> 
 
 
         <footer class="page-footer orange">
@@ -476,10 +468,10 @@
                     Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">ToySwap</a>
                 </div>
             </div>
+            
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="assets/js/list.js"></script>
         </footer>
-        <!--  Scripts-->
         <div class="hiddendiv common"></div>
         <div class="drag-target" data-sidenav="nav-mobile" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>
 
@@ -500,7 +492,7 @@
 
 
 
-                    {{!-- {{#each inventory}}
+                {{!-- {{#each inventory}}
             <div class="toyDiv">
                 <ul>
                     <li>{{title}}</li>

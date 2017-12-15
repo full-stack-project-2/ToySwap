@@ -12,12 +12,20 @@ const flash = require('connect-flash');
 const app = express();
 const passport = require("./config/passport");
 const session = require("express-session");
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8070;
 
 
 
 // Requiring our models for syncing
 const db = require("./models");
+
+// Set Handlebars.
+const exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({
+    defaultLayout: "main"
+}));
+app.set("view engine", "handlebars");
 
 
 
@@ -28,26 +36,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-// Set Handlebars.
-const exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({
-    defaultLayout: "main"
-}));
-app.set("view engine", "handlebars");
 
 // Creating express app and configuring middleware needed for authentication
 // We need to use sessions to keep track of our user's login status
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true}));
-//flash is used to show a message on an incorrect login
-app.use(flash());
-
 //passport middleware methods
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
-
-
+//flash is used to show a message on an incorrect login
+app.use(flash());
 app.use(express.static('public')); 
+
+
+
+
 
 
 // Routes
@@ -55,6 +57,14 @@ app.use(express.static('public'));
 require("./routes/html-routes")(app);
 require("./routes/user-api-routes")(app);
 require("./routes/inventory-api-routes")(app);
+
+
+
+
+
+
+
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

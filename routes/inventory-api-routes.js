@@ -42,30 +42,87 @@ module.exports = function (app) {
 
   // });
 
+  // app.get("/toys", function (req, res) {
+  //   // var query = {};
+  //   // if (req.query.author_id) {
+  //   //   query.AuthorId = req.query.author_id;
+  //   // }
+  //   // Here we add an "include" property to our options in our findAll query
+  //   // We set the value to an array of the models we want to include in a left outer join
+  //   // In this case, just db.Author
+  //   db.Inventory.findAll({
+  //     // where: query,
+  //     // include: [db.User]
+  //   }).then(function (dbInventory) {
+  //     res.render("index", {
+  //       inventory: dbInventory
+  //     });
+  //   });
+  // });
 
 
 
 
+  // app.get("/list-toys", isAuthenticated, function (req, res) {
+  //   // Here we add an "include" property to our options in our findAll query
+  //   // We set the value to an array of the models we want to include in a left outer join
+  //   // In this case, just db.Author
+  //   db.Inventory.findAll({
+  //     // where: query,
+  //     // include: [db.User]
+  //   }).then(function (dbInventory) {
+  //     console.log(dbInventory);
+  //     // console.log("FROM DB *****************************************" + "\n" + dbInventory);
+  //     // console.log(dbInventory[0].dataValues);
+  //     // console.log(dbInventory[0].dataValues.User.dataValues);
+  //     // let hbsObject = {
+  //     //   toys: dbInventory
+  //     // };
+  //     // console.log(hbsObject);
+  //     res.render("list", {inventory: dbInventory});
+  //   });
+  // });
 
-  app.get("/list-toys", isAuthenticated, function (req, res) {
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
-    db.Inventory.findAll({
-      // where: query,
-      include: [db.User]
-    }).then(function (dbInventory) {
-      // console.log("FROM DB *****************************************" + "\n" + dbInventory);
-      // console.log(dbInventory[0].dataValues);
-      // console.log(dbInventory[0].dataValues.User.dataValues);
-      let hbsObject = {
-        toys: dbInventory[0].dataValues,
-        users: dbInventory[0].dataValues.User.dataValues
-      };
-      console.log(hbsObject);
-      res.render("list", hbsObject);
-    });
+  app.get("/list", isAuthenticated, function (req, res) {
+    if (req.user) {
+      db.Inventory.findAll({
+        include: [db.User]
+      }).then(function (dbInventory) {
+        res.render("list", {
+          // toyID: toyID,
+          inventory: dbInventory
+        });
+      });
+    }
+    else {
+      res.render("login");
+    }
+
   });
+
+  // app.get("/get-back-data", isAuthenticated, function (req, res) {
+  //   // Here we add an "include" property to our options in our findAll query
+  //   // We set the value to an array of the models we want to include in a left outer join
+  //   // In this case, just db.Author
+  //   db.Inventory.findAll({
+  //     // where: query,
+  //     include: [db.User]
+  //   }).then(function (dbInventory) {
+  //     console.log("NEWWWWWWWW-------" + dbInventory);
+  //     // console.log("FROM DB *****************************************" + "\n" + dbInventory);
+  //     // console.log(dbInventory[0].dataValues);
+  //     // console.log(dbInventory[0].dataValues.User.dataValues);
+  //     // let myArr = [{
+  //     //   hello: "Hello",
+  //     //   goodbye: "Goodbye"
+  //     // }]
+  //     // let hbsObject = {
+  //     //   toys: dbInventory
+  //     // };
+  //     // console.log(hbsObject);
+  //     res.json(dbInventory);
+  //   });
+  // });
 
   // router.get("/", function (req, res) {
   //   burger.all(function (data) {
@@ -86,19 +143,19 @@ module.exports = function (app) {
 // } FOR DEBUGGING SENDING USERS A CUSTOM 404 PAGE
 
   // post request for uploading new toy to DB
-  app.post("/toys", function (req, res) {
-    // console.log(req.body);
-    db.Inventory.create({
-      title: req.body.title,
-      product_condition: req.body.product_condition,
-      availability: req.body.availability,
-      price: req.body.price,
-      url: req.body.url,
-      description: req.body.description
-    }).then(function (dbToys) {
-      res.redirect("/");
-    });
-  });
+  // app.post("/toys", function (req, res) {
+  //   // console.log(req.body);
+  //   db.Inventory.create({
+  //     title: req.body.title,
+  //     product_condition: req.body.product_condition,
+  //     availability: req.body.availability,
+  //     price: req.body.price,
+  //     url: req.body.url,
+  //     description: req.body.description
+  //   }).then(function (dbToys) {
+  //     res.redirect("/");
+  //   });
+  // });
 
 
 
