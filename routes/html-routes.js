@@ -16,29 +16,27 @@ const isAuthenticated = require("../config/middleware/authentication");
 // Routes
 // =============================================================
 module.exports = function (app) {
-
+  // Both the / and /home route sends user to home page
   app.get("/", function (req, res) {
-    res.render("index");
+    res.render("home");
   });
 
   app.get("/home", function (req, res) {
-    res.render("index");
+    res.render("home");
   });
 
   app.get("/loginErr", function (req, res) {    
-    console.log('/loginErr');
+    res.flash('info', 'Flash is back!')
     res.render('login',{errMsg: 'INCORRECT USERNAME/PASSWORD'});
   });
 
-  app.get("/login", function (req, res) {    
-    console.log('/login');
+  // If user is authenticated, they may proceed to the list of all products, otherwise they are sent back the login page
+  app.get("/login", isAuthenticated, function (req, res) {  
     if (req.user)
-      res.redirect("/products");
+      res.redirect("/list");
     else
-      res.render("login");
-      
+      res.render("login"); 
   });
-
   
   
   // app.get("/chat/:setWord", function(req, res) {
@@ -73,9 +71,7 @@ module.exports = function (app) {
     res.render("register");
   });
 
-
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  
   app.get("/products", isAuthenticated, function (req, res) {
     res.render("products");
   });
@@ -93,20 +89,4 @@ module.exports = function (app) {
     else if (pgNum === 'account')
       res.render("account");
   });
-
-  // // cms route loads cms.html
-  // app.get("/cms", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/cms.html"));
-  // });
-
-  // // blog route loads blog.html
-  // app.get("/blog", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/blog.html"));
-  // });
-
-  // // authors route loads author-manager.html
-  // app.get("/authors", function(req, res) {
-  //   res.sendFile(path.join(__dirname, "../public/author-manager.html"));
-  // });
-
 };

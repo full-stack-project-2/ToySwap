@@ -1,12 +1,13 @@
 var db = require("../models");
 const walmart = require("../walmart_api/data"); //requires the constructor
+const isAuthenticated = require("../config/middleware/authentication");
 // Routes
 // =============================================================
 module.exports = function (app) {
+// This is were the initial data from the walmart API gets stored into the DB
 
-  // This is were the initial data from the walmart API gets stored into the DB
-  let result = ''; //declare a global empty variable.
-  let runner = new walmart(); //creates a new object
+    let result = ''; //declare a global empty variable.
+    let runner = new walmart(); //creates a new object
   let callbackFnc = function (data) { //callback function to fetch data
     result = data;
     result.forEach(function (toy) {
@@ -16,67 +17,145 @@ module.exports = function (app) {
         availability: 40,
         price: toy.price,
         url: toy.image,
-        description: toy.description
+        description: toy.description,
+        UserId: 1
       }).then(function (dbToys) {
       });
     })
 
   };
-  runner.getToyData(callbackFnc); //calls the constructors function and passes a callback function.
+  runner.getToyData(callbackFnc);
+  
+  // runner.getToyData(callbackFnc);
+   //calls the constructors function and passes a callback function.
 
+  // app.get("/list", isAuthenticated, function (req, res) {    
+  //   db.Inventory.findAll({
+  //     where: query,
+  //     include: [db.Inventory]
+  //   }).then(function (dbInventory) {
+  //     res.render("products", {
+  //       toyID: toyID,
+  //       inventory: dbInventory
+  //     });
+  //   });
 
-  // router.get("/burgers", function(req, res) {
-  //   // express callback response by calling burger.selectAllBurger
-  //   burger.all(function(burgerData) {
-  //     // wrapper for orm.js that using MySQL query callback will return burger_data, render to index with handlebar
-  //     res.render("index", { burger_data: burgerData });
+  // });
+
+  // app.get("/toys", function (req, res) {
+  //   // var query = {};
+  //   // if (req.query.author_id) {
+  //   //   query.AuthorId = req.query.author_id;
+  //   // }
+  //   // Here we add an "include" property to our options in our findAll query
+  //   // We set the value to an array of the models we want to include in a left outer join
+  //   // In this case, just db.Author
+  //   db.Inventory.findAll({
+  //     // where: query,
+  //     // include: [db.User]
+  //   }).then(function (dbInventory) {
+  //     res.render("index", {
+  //       inventory: dbInventory
+  //     });
   //   });
   // });
 
-  // // post route -> back to index
-  // router.post("/burgers/create", function(req, res) {
-  //   // takes the request object using it as input for buger.addBurger
-  //   burger.create(req.body.burger_name, function(result) {
-  //     // wrapper for orm.js that using MySQL insert callback will return a log to console,
-  //     // render back to index with handle
-  //     console.log(result);
-  //     
+
+
+
+  // app.get("/list-toys", isAuthenticated, function (req, res) {
+  //   // Here we add an "include" property to our options in our findAll query
+  //   // We set the value to an array of the models we want to include in a left outer join
+  //   // In this case, just db.Author
+  //   db.Inventory.findAll({
+  //     // where: query,
+  //     // include: [db.User]
+  //   }).then(function (dbInventory) {
+  //     console.log(dbInventory);
+  //     // console.log("FROM DB *****************************************" + "\n" + dbInventory);
+  //     // console.log(dbInventory[0].dataValues);
+  //     // console.log(dbInventory[0].dataValues.User.dataValues);
+  //     // let hbsObject = {
+  //     //   toys: dbInventory
+  //     // };
+  //     // console.log(hbsObject);
+  //     res.render("list", {inventory: dbInventory});
   //   });
   // });
 
-  app.get("/toys", function (req, res) {
-    // var query = {};
-    // if (req.query.author_id) {
-    //   query.AuthorId = req.query.author_id;
-    // }
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
-    db.Inventory.findAll({
-      // where: query,
-      // include: [db.User]
-    }).then(function (dbInventory) {
-      res.render("index", {
-        inventory: dbInventory
+  app.get("/list", isAuthenticated, function (req, res) {
+    if (req.user) {
+      db.Inventory.findAll({
+        include: [db.User]
+      }).then(function (dbInventory) {
+        res.render("list", {
+          // toyID: toyID,
+          inventory: dbInventory
+        });
       });
-    });
+    }
+    else {
+      res.render("login");
+    }
+
   });
 
+  // app.get("/get-back-data", isAuthenticated, function (req, res) {
+  //   // Here we add an "include" property to our options in our findAll query
+  //   // We set the value to an array of the models we want to include in a left outer join
+  //   // In this case, just db.Author
+  //   db.Inventory.findAll({
+  //     // where: query,
+  //     include: [db.User]
+  //   }).then(function (dbInventory) {
+  //     console.log("NEWWWWWWWW-------" + dbInventory);
+  //     // console.log("FROM DB *****************************************" + "\n" + dbInventory);
+  //     // console.log(dbInventory[0].dataValues);
+  //     // console.log(dbInventory[0].dataValues.User.dataValues);
+  //     // let myArr = [{
+  //     //   hello: "Hello",
+  //     //   goodbye: "Goodbye"
+  //     // }]
+  //     // let hbsObject = {
+  //     //   toys: dbInventory
+  //     // };
+  //     // console.log(hbsObject);
+  //     res.json(dbInventory);
+  //   });
+  // });
+
+  // router.get("/", function (req, res) {
+  //   burger.all(function (data) {
+  //     let hbsObject = {
+  //       burgers: data
+  //     };
+  //     res.render("index", hbsObject);
+  //   });
+  // });
+  
+
+//   .findAll({
+//     //attributes: ['id'] //select fields
+//     })
+// //.then((todos) => res.status(200).send(todos))
+// .then((todos) => res.render('test/test_view', {layout: 'ca_layout.handlebars', test_data: todos}))
+// .catch((error) => res.status(400).send(error));
+// } FOR DEBUGGING SENDING USERS A CUSTOM 404 PAGE
 
   // post request for uploading new toy to DB
-  app.post("/toys", function (req, res) {
-    // console.log(req.body);
-    db.Inventory.create({
-      title: req.body.title,
-      product_condition: req.body.product_condition,
-      availability: req.body.availability,
-      price: req.body.price,
-      url: req.body.url,
-      description: req.body.description
-    }).then(function (dbToys) {
-      res.redirect("/");
-    });
-  });
+  // app.post("/toys", function (req, res) {
+  //   // console.log(req.body);
+  //   db.Inventory.create({
+  //     title: req.body.title,
+  //     product_condition: req.body.product_condition,
+  //     availability: req.body.availability,
+  //     price: req.body.price,
+  //     url: req.body.url,
+  //     description: req.body.description
+  //   }).then(function (dbToys) {
+  //     res.redirect("/");
+  //   });
+  // });
 
 
 
