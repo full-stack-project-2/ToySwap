@@ -5,13 +5,23 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
+    width: 320px;
     
   }
   
-  #text {
+  #image-login {
+    position: relative; 
+    overflow: hidden; 
+    width: 100%; 
+    height: 100vh; 
+  } 
+
+  
+  
+  #text-login {
     font-family: avenir, 'avenir next', helvetica, arial, sans-serif;
-    font-size: 20px;
+    
+    margin-top: 0;
   }
   
   p {
@@ -214,3 +224,5 @@
     font-weight: bold;
     text-decoration: underline;
   }
+  
+  
