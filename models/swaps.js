@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     var Swaps = sequelize.define("Swaps", {
-        incomingSwapId: {
+        incomingId: {
             type: DataTypes.INTEGER,
             default: null,
         },

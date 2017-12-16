@@ -110,7 +110,7 @@ module.exports = function (app) {
         $not: toyID
       }
     };
-    
+
     // console.log(query);
     // Here we add an "include" property to our options in our findAll query		
     // We set the value to an array of the models we want to include in a left outer join		
@@ -158,20 +158,20 @@ module.exports = function (app) {
 
 
 
-  app.get("/swap/:toyID/:vistorToyId", function (req, res) {
-   
-    // let toyID = req.params.toyID;
-    // let UserId = req.params.UserId;
-
-    // let query = {
-    //   UserId: UserId,
-    //   id: {
-    //     $not: toyID
-    //   }
-    // };
-    console.log("HERE");
-    res.redirect("/list");
+  app.post("/swaps", function (req, res) {
+    console.log(req.body);
+    db.Swaps.create({
+      incomingId: req.body.incomingId,
+      incomingUrl: req.body.incomingUrl,
+      incomingTitle: req.body.incomingTitle,
+      sellerId: req.body.sellerId,
+      sellerTitle: req.body.sellerTitle,
+      sellerUrl: req.body.sellerUrl,
+    }).then(function (dbToys) {
+      res.redirect(200, "/list");
+    });
   });
+
 
 
   //   .findAll({

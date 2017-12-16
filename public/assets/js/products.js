@@ -20,20 +20,15 @@ $(document).ready(function(){
         let sellerTitle = $(".viewImg").attr("alt");
         let sellerUrl = $(".viewImg").attr("src");
         let swap = {
-            incomingSwapId: toyId,
-            url: url,
-            title: title,
-            sellerId: sellerId,
+            incomingId: toyId,
+            incomingUrl: url,
+            incomingTitle: title,
+            sellerId: sellerId.toy,
             sellerTitle: sellerTitle,
             sellerUrl: sellerUrl
         }
-        $.post("/toys/" + toyId, swap).done(function (data) {		
-            // $.get("/", function (data) {		
-            //     // todos = data;		
-            // });		
-            // console.log("CONGRATS, you just uploaded your product!");		
-            // console.log(data)		
-            // window.location.replace("/toys");		
+        $.post("/swaps", swap).done(function (data) {		
+            $('#swap').modal('close');
         });		
         
         // $.post("/swap/friends", userData, function(data) {
