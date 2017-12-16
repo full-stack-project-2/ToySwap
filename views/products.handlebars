@@ -123,7 +123,7 @@
                     {{#each inventory}}
             <div class="col s6" style="border: 1px solid lightgrey; border-radius: 5px; width: 230px">
                 <div class="item-container">
-                    <div class="item-pic">
+                    <div class="item-pic" id='itemsInfo' attrId={{id}} attrUser={{UserId}}>
                         <a href="/toy/{{id}}/{{UserId}}" class="opa-hover">
                             <img class="vertical-middle" width="150" height="150" src="{{url}}" alt="{{title}}" style="margin-top: 10px">
                         </a>
