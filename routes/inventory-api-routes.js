@@ -131,22 +131,23 @@ module.exports = function (app) {
         include: [db.User]
       }).then(function (selectedToy) {
         // Current user in the session along with their information can be found in the req.user object
-        console.log("REQ.USEReeeee " + req.user);
-        let visitorUsername = req.user.username;
-        console.log(visitorUsername);
-        // let swapperQuery = {
-        //   username: req.user.username,
-        //   availability: {
-        //     $gt: 0
-        //   }
-        // }
+        // console.log("REQ.USEReeeee " + req.user);
+        let visitorId = req.user.id;
+        // console.log(visitorUsername);
+        let swapQuery = {
+          id: visitorId,
+          availability: {
+            $gt: 0
+          }
+        }
         db.Inventory.findAll({
-          // where: swapperQuery,
+          where: swapQuery,
+          include: [db.User]
         }).then(function (toysToSwap) {
           res.render("products", {
             inventory: userInventory,
-            toy: selectedToy
-            // swapables: toysToSwap
+            toy: selectedToy,
+            swapables: toysToSwap
           });
           // console.log("toys2swap ----------------------------------------\n" + toysToSwap);
         });
@@ -155,14 +156,22 @@ module.exports = function (app) {
   });
 
 
-  // // router.get("/", function (req, res) {
-  //   burger.all(function (data) {
-  //     let hbsObject = {
-  //       burgers: data
-  //     };
-  //     res.render("index", hbsObject);
-  //   });
-  // });
+
+
+  app.get("/swap/:toyID/:vistorToyId", function (req, res) {
+   
+    // let toyID = req.params.toyID;
+    // let UserId = req.params.UserId;
+
+    // let query = {
+    //   UserId: UserId,
+    //   id: {
+    //     $not: toyID
+    //   }
+    // };
+    console.log("HERE");
+    res.redirect("/list");
+  });
 
 
   //   .findAll({
