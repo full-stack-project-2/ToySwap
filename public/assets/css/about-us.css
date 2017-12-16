@@ -2,6 +2,7 @@
   text-shadow: 3px 2px #f88b89;
 }
 #meet-us{
+  font-family: 'Suez One', serif;
   margin-top: 50px;
   color: white;
   font-size: 370%;
@@ -25,9 +26,9 @@
   color: #ef5350;
 }
 a{
+  color: white;
   width: 40%;
 }
-
 
 .material-icons {
   color: #ef5350;
@@ -84,7 +85,7 @@ text-align: center;
   
   #about-us-title {
   font-size: 60px;
-  margin-top: 20%;
+  margin-top: 0%;
 }
   #index-banner .section {
     top: 10%;
@@ -99,7 +100,7 @@ text-align: center;
   }
   #about-us-title {
   font-size: 60px;
-  margin-top: 20%;
+  margin-top: 0%;
 }
 }
 
