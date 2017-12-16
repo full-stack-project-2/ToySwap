@@ -11,8 +11,8 @@ $(document).ready(function () {
 
   $('#msgDiv').html('<small><i>Chat area...</i></small>');
   $('#topDiv').append('<div id="chatBox" class=""></div>');
-  $('#bottDiv').append('<input type="text" class="" id="txtBox">');
-  $('#bottDiv').append('<button id="submitBtn" class="waves-effect waves-light btn">Submit</button>');
+  $('#bottDiv').append('<input type="text" class="" id="txtBox" style="background-color:white; margin-top: 10px;">');
+  $('#bottDiv').append('<button id="submitBtn" class="btn waves-effect waves col s12 grey darken-1">Submit</button>');
 
   let modalMsg = function (msg) {
     $('#myModal').css('display', 'block');
@@ -31,7 +31,7 @@ $(document).ready(function () {
     }
   });
 
-  chatSet();
+  //chatSet();
 
 
   let startUserConnection = function (personalUserName) {
