@@ -16,6 +16,9 @@
     height: 100vh; 
   } 
 
+  right hide-on-med-and-down-one {
+    color: white;
+  }
   
   
   
@@ -39,10 +42,12 @@
       width: 100%;
   }
   
-  .brand-logo{
+  .brand-logo-one{
     font-family: avenir, 'avenir next', helvetica, arial, sans-serif;
-    font-size: 20px;
+    font-size: 30px;
+    color: white;
   }
+  
   
   /* Centered text */
   .centered {
@@ -59,7 +64,8 @@
   #imageOne {
     /*//margin-left: 0;*/
     /* smargin-right: 0;*/
-    margin-bottom: 20px;
+    margin-top: auto;
+    margin-bottom:  10px;
   
     }
     
@@ -92,11 +98,14 @@
   }
   
   .owner-info-picture {
-    margin: 10px;
+    margin: 20px;
+    float: left;
+
   }
-  
+
+ 
   #page-number {
-    margin-left: 450px;
+    margin-left: 470px;
   }
   
     @media only screen and (min-width: 0) {
@@ -116,6 +125,18 @@
   .material-icons {
     vertical-align: middle !important;
     padding-bottom: 3px;
+   
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;  /* Preferred icon size */
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
    
   }
 
