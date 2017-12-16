@@ -1,13 +1,14 @@
 var db = require("../models");
 const walmart = require("../walmart_api/data"); //requires the constructor
 const isAuthenticated = require("../config/middleware/authentication");
+
 // Routes
 // =============================================================
 module.exports = function (app) {
-// This is were the initial data from the walmart API gets stored into the DB
+  // This is were the initial data from the walmart API gets stored into the DB
 
-    let result = ''; //declare a global empty variable.
-    let runner = new walmart(); //creates a new object
+  let result = ''; //declare a global empty variable.
+  let runner = new walmart(); //creates a new object
   let callbackFnc = function (data) { //callback function to fetch data
     result = data;
     result.forEach(function (toy) {
@@ -19,15 +20,14 @@ module.exports = function (app) {
         url: toy.image,
         description: toy.description,
         UserId: 1
-      }).then(function (dbToys) {
-      });
+      }).then(function (dbToys) {});
     })
 
   };
   runner.getToyData(callbackFnc);
-  
+
   // runner.getToyData(callbackFnc);
-   //calls the constructors function and passes a callback function.
+  //calls the constructors function and passes a callback function.
 
   // app.get("/list", isAuthenticated, function (req, res) {    
   //   db.Inventory.findAll({
@@ -93,36 +93,51 @@ module.exports = function (app) {
           inventory: dbInventory
         });
       });
-    }
-    else {
+    } else {
       res.render("login");
     }
 
   });
 
-  // app.get("/get-back-data", isAuthenticated, function (req, res) {
-  //   // Here we add an "include" property to our options in our findAll query
-  //   // We set the value to an array of the models we want to include in a left outer join
-  //   // In this case, just db.Author
-  //   db.Inventory.findAll({
-  //     // where: query,
-  //     include: [db.User]
-  //   }).then(function (dbInventory) {
-  //     console.log("NEWWWWWWWW-------" + dbInventory);
-  //     // console.log("FROM DB *****************************************" + "\n" + dbInventory);
-  //     // console.log(dbInventory[0].dataValues);
-  //     // console.log(dbInventory[0].dataValues.User.dataValues);
-  //     // let myArr = [{
-  //     //   hello: "Hello",
-  //     //   goodbye: "Goodbye"
-  //     // }]
-  //     // let hbsObject = {
-  //     //   toys: dbInventory
-  //     // };
-  //     // console.log(hbsObject);
-  //     res.json(dbInventory);
-  //   });
-  // });
+  app.get("/toy/:toyID/:UserId", function (req, res) {  
+    // grabs the two parameters passed in from the ajax call.. its essential we have a user ID associated with the product we are searching for, or else we wont get back all the user's products		
+    let toyID = req.params.toyID;
+    let UserId = req.params.UserId;
+    
+    let query = {
+      UserId: UserId,
+      id: {
+        $not: toyID
+      }
+    };
+    // console.log(query);
+    // Here we add an "include" property to our options in our findAll query		
+    // We set the value to an array of the models we want to include in a left outer join		
+    // In this case, just db.Author		
+    db.Inventory.findAll({
+      where: query,
+      include: [db.User],
+      id: {
+        $not: toyID
+      }
+    }).then(function (userInventory) {
+      // console.log("DB INVENTORY ----------------------------------------\n" + userInventory);
+      let toyQuery = {
+        id: toyID
+      }
+      db.Inventory.findAll({
+        where: toyQuery,
+        include: [db.User]
+      }).then(function (selectedToy) {
+        // console.log("selectedToy ----------------------------------------\n" + selectedToy);
+        res.render("products", {
+          inventory: userInventory,
+          toy: selectedToy
+        });
+      });
+    });
+  });
+
 
   // router.get("/", function (req, res) {
   //   burger.all(function (data) {
@@ -132,15 +147,15 @@ module.exports = function (app) {
   //     res.render("index", hbsObject);
   //   });
   // });
-  
 
-//   .findAll({
-//     //attributes: ['id'] //select fields
-//     })
-// //.then((todos) => res.status(200).send(todos))
-// .then((todos) => res.render('test/test_view', {layout: 'ca_layout.handlebars', test_data: todos}))
-// .catch((error) => res.status(400).send(error));
-// } FOR DEBUGGING SENDING USERS A CUSTOM 404 PAGE
+
+  //   .findAll({
+  //     //attributes: ['id'] //select fields
+  //     })
+  // //.then((todos) => res.status(200).send(todos))
+  // .then((todos) => res.render('test/test_view', {layout: 'ca_layout.handlebars', test_data: todos}))
+  // .catch((error) => res.status(400).send(error));
+  // } FOR DEBUGGING SENDING USERS A CUSTOM 404 PAGE
 
   // post request for uploading new toy to DB
   // app.post("/toys", function (req, res) {
