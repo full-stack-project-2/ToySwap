@@ -18,6 +18,7 @@
 
   
   
+  
   #text-login {
     font-family: avenir, 'avenir next', helvetica, arial, sans-serif;
     
@@ -115,9 +116,9 @@
   .material-icons {
     vertical-align: middle !important;
     padding-bottom: 3px;
+   
   }
-  
-  
+
   .viewImg {
     height: 400px;
     width: 400px;
