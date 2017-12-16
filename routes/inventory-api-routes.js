@@ -24,23 +24,28 @@ module.exports = function (app) {
     })
 
   };
+  // runner.getToyData(callbackFnc);
   runner.getToyData(callbackFnc);
 
-  // runner.getToyData(callbackFnc);
-  //calls the constructors function and passes a callback function.
 
-  // app.get("/list", isAuthenticated, function (req, res) {    
-  //   db.Inventory.findAll({
-  //     where: query,
-  //     include: [db.Inventory]
-  //   }).then(function (dbInventory) {
-  //     res.render("products", {
-  //       toyID: toyID,
-  //       inventory: dbInventory
-  //     });
-  //   });
 
-  // });
+  app.get("/home-swap", isAuthenticated, function (req, res) {
+    let query = {
+      sellerId : req.user.id
+    }
+    db.Swaps.findAll({
+      where: query
+    }).then(function (dbInventory) {
+      if (dbInventory) {
+        res.render("activity", {
+          inventory: dbInventory
+        });
+      }
+      else {
+        res.render("list");
+      }
+    });
+  });
 
   // app.get("/toys", function (req, res) {
   //   // var query = {};
@@ -99,28 +104,26 @@ module.exports = function (app) {
 
   });
 
-  app.get("/toy/:toyID/:UserId", function (req, res) {  
+  app.get("/toy/:toyID/:UserId", function (req, res) {
     // grabs the two parameters passed in from the ajax call.. its essential we have a user ID associated with the product we are searching for, or else we wont get back all the user's products		
     let toyID = req.params.toyID;
     let UserId = req.params.UserId;
-    
-    let query = {
-      UserId: UserId,
-      id: {
-        $not: toyID
-      }
-    };
-    // console.log(query);
-    // Here we add an "include" property to our options in our findAll query		
-    // We set the value to an array of the models we want to include in a left outer join		
-    // In this case, just db.Author		
-    db.Inventory.findAll({
-      where: query,
-      include: [db.User],
-      id: {
-        $not: toyID
-      }
-    }).then(function (userInventory) {
+
+    // let query = {
+    //   UserId: UserId,
+    //   id: {
+    //     $not: toyID
+    //   }
+    // };
+
+    // Here we add an "include" property to our options in our findAll query			
+    // db.Inventory.findAll({
+    //   where: query,
+    //   include: [db.User],
+    //   id: {
+    //     $not: toyID
+    //   }
+    // }).then(function (userInventory) {
       // console.log("DB INVENTORY ----------------------------------------\n" + userInventory);
       let toyQuery = {
         id: toyID
@@ -129,24 +132,46 @@ module.exports = function (app) {
         where: toyQuery,
         include: [db.User]
       }).then(function (selectedToy) {
-        // console.log("selectedToy ----------------------------------------\n" + selectedToy);
-        res.render("products", {
-          inventory: userInventory,
-          toy: selectedToy
+        // Current user in the session along with their information can be found in the req.user object
+        // console.log("REQ.USEReeeee " + req.user);
+        let visitorId = req.user.id;
+        // console.log(visitorUsername);
+        let swapQuery = {
+          UserId: visitorId,
+          availability: {
+            $gt: 0
+          }
+        }
+        db.Inventory.findAll({
+          where: swapQuery,
+          include: [db.User]
+        }).then(function (toysToSwap) {
+          res.render("products", {
+            // inventory: userInventory,
+            toy: selectedToy,
+            swapables: toysToSwap
+          });
         });
       });
-    });
+    // });
   });
 
 
-  // router.get("/", function (req, res) {
-  //   burger.all(function (data) {
-  //     let hbsObject = {
-  //       burgers: data
-  //     };
-  //     res.render("index", hbsObject);
-  //   });
-  // });
+
+
+  app.post("/swaps", function (req, res) {
+    db.Swaps.create({
+      incomingId: req.body.incomingId,
+      incomingUrl: req.body.incomingUrl,
+      incomingTitle: req.body.incomingTitle,
+      sellerId: req.body.sellerId,
+      sellerTitle: req.body.sellerTitle,
+      sellerUrl: req.body.sellerUrl,
+    }).then(function (dbToys) {
+      res.redirect(200, "/list");
+    });
+  });
+
 
 
   //   .findAll({
@@ -158,19 +183,19 @@ module.exports = function (app) {
   // } FOR DEBUGGING SENDING USERS A CUSTOM 404 PAGE
 
   // post request for uploading new toy to DB
-  // app.post("/toys", function (req, res) {
-  //   // console.log(req.body);
-  //   db.Inventory.create({
-  //     title: req.body.title,
-  //     product_condition: req.body.product_condition,
-  //     availability: req.body.availability,
-  //     price: req.body.price,
-  //     url: req.body.url,
-  //     description: req.body.description
-  //   }).then(function (dbToys) {
-  //     res.redirect("/");
-  //   });
-  // });
+  app.post("/toys", function (req, res) {
+    // console.log(req.body);
+    db.Inventory.create({
+      title: req.body.title,
+      product_condition: req.body.product_condition,
+      availability: req.body.availability,
+      price: req.body.price,
+      url: req.body.url,
+      description: req.body.description
+    }).then(function (dbToys) {
+      res.redirect("/");
+    });
+  });
 
 
 
