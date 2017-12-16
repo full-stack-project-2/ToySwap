@@ -1,20 +1,17 @@
  <div id="nav">
         <div class="navbar-fixed">
             <nav class="red lighten-1" role="navigation">
-                <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">ToySwap</a>
+                <div class="nav-wrapper container"><a id="logo-container"  href="/home" class="brand-logo" style="color: white">ToySwap</a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="/home">Home</a></li>
                         <li><a href="/login">Login</a></li>
-                        <li><a href="#"><i class="material-icons text-black">shopping_cart</i></a></li>
-                        <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light"><i class="mdi-social-notifications"></i></a>
-                        </li>
-                        <li><a href="#" data-activates="chat-out" class="waves-effect waves-block waves-light chat-collapse"><i class="mdi-communication-chat"></i></a>
-                        </li>
+                        
                     </ul>
                     <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
-                        <li><a href="#">Navbar Link</a></li>
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/login">Login</a></li>
                     </ul>
-                    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                   
                 </div>
             </nav>
         </div>
@@ -26,21 +23,23 @@
             <div>
                 <div class="row">
                     <div class="col m6">
-                        <div id='imgCont'>
-                            <img src="{{url}}" class='viewImg' alt="Img not found.">
-                        </div>
-                        <div>
+                        
+                           <img class="center-block" style=" border-radius: 5px;" src="{{url}}"  alt="Img not found.">
+                       
+                        
+                       
+                            <div class="center-block">
                             <div>
-                                <i class="material-icons">star</i>
-                                <span id="text-one">Add to Watch list</span>
+                                
                             </div>
-                            <span id="text-two">5 people watching</span>
+                           
                         </div>
-                    </div>
+                        </div>
+                   
                     <div class="col m4 text-left">
                         <div class="col m-2">
                             <div class="pl-2 pt-3">
-                                <span id="title">{{title}}</span>
+                                <span id="title" style="font-size: 25px; font-weight: 700;">{{title}}</span>
                             </div>
                             <hr>
                             <div class="m-3">
@@ -50,30 +49,38 @@
                                         <span class="close">&times;</span>
                                         <p id='modalPMsg'></p>
                                         <div id='allModalBtns'>
-                                            <button class="btn btn-success" id='modalOfferBtn'>Offer</button>
-                                            <button class="btn btn-danger" id='modalCancelBtn'>Cancel</button>
+                                            <button class="modal-action waves-effect waves col s12 red lighten-1" id='modalOfferBtn'>Offer</button>
+                                            <button class="modal-action waves-effect waves col s12 red lighten-1" id='modalCancelBtn'>Cancel</button>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- ******** -->
                                 
                                 <div class="d-inline-block ml-2">
-                                    <div class="text-right">This item is {{product_condition}}</div>
-                                    <div class="text-right">Additional Info:</div>
-                                    <div class="text-right">{{availability}} in stock</div>
-                                    <div class="text-right">Suggested Retail Price: {{price}}</div>
+                                    <div class="text-right" style="font-size: 12px; color: red" > {{product_condition}}</div>
+                                    <div class="text-left" style="font-size: 25px; font-weight: 700"> {{price}}</div>
+            
+                                    
+                                    <div class="right-align" style="font-size: 15px">
+                                     <i class="material-icons black-text">star</i>
+                                            <span id="text-one"> Add to Watch list</span>
+                                             <br>
+                                             <span id="text-two">5 people watching</span>
+                                    </div>
+                                    <div class="right-align" style="font-size: 15px;">{{availability}}  in stock</div>
                                 </div>
                                 <div class="d-inline-block">
                                 </div>
                             </div>
                             <div id="dataContBot" class="pr-3">
                                 <div class="ml-3 mt-2">
-                                    <div class="pt-2 font-weight-bold">Owner Contact Information:</div>
+                                    <div class="pt-2 font-weight-bold" style="font-size: 18px; font-weight: 700; magin-top: 20px">Owner Contact Information:</div>
                                     <hr>
                                     <div class="d-inline-block">
                                         <div class="text-right">Username: {{User.username}}</div>
                                         {{!-- <div class="text-right">City, State:</div> --}}
                                         <div class="text-right">Email: {{User.email}}</div>
+                                        <br>
                                     </div>
                                     {{!-- <div class="d-inline-block mb-3">
                                         <div class="text-left ml-2">John Doe</div>
@@ -83,13 +90,28 @@
                                     <div class="mb-3">
                                         <div class="row pb-2">
                                             <div class="col-md-6">
-                                                <button class="my-1 btn btn-success" id="tradeBtn">Offer Trade</button>
-                                                <button class="my-1 btn btn-info" data-toggle='tooltip' title='Not Available for chat.' data-placement="top" id="chatBtn">Chat</button>
+                                               
+                                                <button class="btn waves-effect waves col s4  grey lighten-1 offset-s1"id="tradeBtn">Offer Trade</button>
+                                                <button class="btn waves-effect waves col s4  grey lighten-1 offset-s1" data-toggle='tooltip' 
+                                                title='Not Available for chat.' data-placement="top" id="chatBtn">Chat</button>
                                             </div>
-                                            <div class="col m-6">
+                                            
+                                            <div class="col m-6 right-align">
                                                 <a href="#">
-                                                        <img src="/assets/img/questionIcon.png" id="qIcon" alt="Img not found." class="mt-2">
+                                                       
+                                                        <br>
+                                                         &nbsp;
+                                                        &nbsp;&nbsp;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                                        &nbsp;&nbsp;
+                                                        &nbsp;
+                                                        &nbsp;
+                                                        &nbsp;
+                                                        &nbsp;
+                                                        &nbsp;
                                                         <span>Ask a Question</span>
+                                                        <img src="/assets/img/questionIcon.png" id="qIcon" alt="Img not found." class="mt-2">
+                                                        
                                                 </a>
                                             </div>
                                         </div>
@@ -104,8 +126,8 @@
         <div class="row mt-3">
             <div class="col m6 text-center">
                 <fieldset>
-                    <legend id="idLegend">Description/Additional Info</legend>
-                    <p>{{description}}</p>
+                    <legend id="idLegend"  style="font-size: 18px; font-weight: 500">Description/Additional Info</legend>
+                    <p style="font-size: 15px">{{description}}</p>
                 </fieldset>
             </div>
             <div class="col m6 text-center">
