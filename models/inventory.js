@@ -47,17 +47,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
   };
-  // inven = Inventory;
   return Inventory;
 };
-
-
-
-// Title of Item
-// condition: (3 vals) in -bag)
-// Availablity (count)
-// MSRP (retail price)
-// url for img
-// Description
-
-
