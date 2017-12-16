@@ -138,6 +138,11 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/toy/:toyID", function (req, res) {  
+  
+    console.log(req.user);
+  })
+
 
   // router.get("/", function (req, res) {
   //   burger.all(function (data) {
