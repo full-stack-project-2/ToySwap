@@ -2,7 +2,9 @@
  <div id="nav">
         <div class="navbar-fixed">
             <nav class="red lighten-1" role="navigation">
-                <div class="nav-wrapper container"><a id="logo-container"  href="/home" class="brand-logo" style="color: white">ToySwap</a>
+
+                <div class="nav-wrapper container"><a id="logo-container"  href="/home" class="brand-logo" style="color: white; font-family:'Suez One', serif">ToySwap</a>
+
                     <ul class="right hide-on-med-and-down">
                         <li><a href="/home">Home</a></li>
                         <li><a href="/login">Login</a></li>
@@ -80,13 +82,19 @@
 
                             </div>
                             <div id="dataContBot" class="pr-3">
-                                <div class="ml-3 mt-2">
-                                    <div class="pt-2 font-weight-bold" style="font-size: 18px; font-weight: 700; magin-top: 20px">Owner Contact Information:</div>
+
+                                <div class="ml-3 mt-2" id="tests" >
+                                    <div class="pt-2 font-weight-bold" style="font-size: 18px; font-weight: 700; magin-top: 20px;">Owner Contact Information:</div>
+
                                     <hr>
                                     <div class="d-inline-block">
-                                        <div class="text-right">Username: {{User.username}}</div>
+                                        <img class="avatar vertical-middle" src="https://vignette.wikia.nocookie.net/logopedia/images/4/4c/Walmart-logo-new.jpg/revision/latest/scale-to-width-down/639?cb=20130919205844g"
+                                    width="100" height="30">
                                         {{!-- <div class="text-right">City, State:</div> --}}
-                                        <div class="text-right">Email: {{User.email}}</div>
+
+                                        <div class="text-right">{{User.email}}</div>
+
+
                                         <br>
                                     </div>
                                     {{!-- <div class="d-inline-block mb-3">
@@ -98,8 +106,10 @@
                                         <div class="row pb-2">
                                             <div class="col-md-6">
                                                
-                                                <button class="btn waves-effect waves col s4  grey lighten-1 offset-s1"id="tradeBtn">Offer Trade</button>
-                                                <button class="btn waves-effect waves col s4  grey lighten-1 offset-s1" data-toggle='tooltip' 
+
+                                                <button class="btn waves-effect waves col s4  grey offset-s1"id="tradeBtn">Offer Trade</button>
+                                                <button class="btn waves-effect waves col s4  grey offset-s1" data-toggle='tooltip' 
+
                                                 title='Not Available for chat.' data-placement="top" id="chatBtn">Chat</button>
                                             </div>
                                             
@@ -107,7 +117,11 @@
                                                 <a href="#">
                                                        
                                                         <br>
-                                                         &nbsp;
+
+                                                        &nbsp;
+                                                        &nbsp;
+                                                        &nbsp;
+
                                                         &nbsp;&nbsp;
                                                         &nbsp;&nbsp;&nbsp;&nbsp;
                                                         &nbsp;&nbsp;
@@ -134,7 +148,9 @@
 
         <div class="row mt-3">
             <div class="col m6 text-center">
-                <fieldset>
+
+                <fieldset id="field-set">
+
                     <legend id="idLegend"  style="font-size: 18px; font-weight: 500">Description/Additional Info</legend>
                     <p style="font-size: 15px">{{description}}</p>
                 </fieldset>
@@ -151,6 +167,7 @@
             </div>
         </div>
     </div>
+
 </div>
 {{/each}}
 
@@ -160,22 +177,26 @@
 <a href="#swap" data-target="swap" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a> --}}
 <!-- Modal Structure -->
 <div id="swap" class="modal">
+
     <div class="modal-content">
         <h3>Which toy would you like to swap?</h3>
         {{#each swapables}}
         <div class="col s6" style=" border-radius: 5px; width: 230px">
             <div class="item-container">
                 <div class="item-pic">
+
                     {{!-- <a href="/toy/{{id}}/{{UserId}}" class="opa-hover"> --}}
                         <img class="vertical-middle" id="{{username}}" width="200" height="160" src="{{url}}" alt="{{title}}" style="margin-top: 10px">
                     {{!-- </a> --}}
                     
                 </div>
+
                 <a class="btn-floating btn-large waves-effect waves-light red swapMe" id="swap-{{id}}"><i class="material-icons">add</i></a>
                 <span class="title-{{id}}">{{title}}</span>
             </div>
         </div>
         {{/each}}
+
             <div class="modal-footer">
                 <a href="#swap" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
             </div>
@@ -263,6 +284,7 @@
                                 </a>
                             </ul>
 
+
                         </div>
 
                         <div class="col l6 s12" id="connect-div">
@@ -284,6 +306,8 @@
                         </div>
                     </div>
                 </div>
+
+
                 <!--  Scripts-->
                 <div class="hiddendiv common"></div>
                 <div class="drag-target" data-sidenav="nav-mobile" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>
