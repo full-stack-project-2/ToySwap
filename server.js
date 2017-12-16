@@ -12,7 +12,7 @@ const flash = require('connect-flash');
 const app = express();
 const passport = require("./config/passport");
 const session = require("express-session");
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 const socket = require('socket.io');
 
 
@@ -69,7 +69,7 @@ require("./routes/inventory-api-routes")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   let server = app.listen(PORT, function() {
     db.User.create({
       email: "walmart@walmart.com",
@@ -111,4 +111,11 @@ app.get("/chat/del/:delWord", function(req, res) {
   res.send('');
 });
 
- 
+app.get("/chat/srch/:word", function(req, res) {
+  if(scrtWrd.indexOf(req.params.word) === -1)
+     res.send('false');
+  else
+     res.send('true');   
+});
+
+  
