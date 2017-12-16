@@ -25,9 +25,9 @@
   color: #ef5350;
 }
 a{
+  color: white;
   width: 40%;
 }
-
 
 .material-icons {
   color: #ef5350;
@@ -84,7 +84,7 @@ text-align: center;
   
   #about-us-title {
   font-size: 60px;
-  margin-top: 20%;
+  margin-top: 0%;
 }
   #index-banner .section {
     top: 10%;
@@ -99,7 +99,7 @@ text-align: center;
   }
   #about-us-title {
   font-size: 60px;
-  margin-top: 20%;
+  margin-top: 0%;
 }
 }
 
