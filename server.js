@@ -12,7 +12,7 @@ const flash = require('connect-flash');
 const app = express();
 const passport = require("./config/passport");
 const session = require("express-session");
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 const socket = require('socket.io');
 
 
@@ -27,10 +27,10 @@ app.engine("handlebars", exphbs({
     defaultLayout: "main"
 }));
 app.set("view engine", "handlebars");
+ 
 
-
-
-
+ 
+ 
 // Sets up the Express middleware to handle data parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -49,21 +49,13 @@ app.use(flash());
 app.use(express.static('public')); 
 
 
-
-
-
+ 
 
 // Routes
 // =============================================================
 require("./routes/html-routes")(app);
 require("./routes/user-api-routes")(app);
 require("./routes/inventory-api-routes")(app);
-
-
-
-
-
-
 
 
 
@@ -79,7 +71,7 @@ db.sequelize.sync({ force: false }).then(function() {
     });
     console.log("App listening on PORT " + PORT);
   });
-
+ 
   const io = socket(server);
 
   io.on('connection', function (socket) { 
@@ -93,7 +85,7 @@ db.sequelize.sync({ force: false }).then(function() {
         console.log('Client disconnected.');
     });    
   });
-});
+});  
 
 app.get("/chat/:setWord", function(req, res) {
   console.log(req.params.setWord);
@@ -102,7 +94,7 @@ app.get("/chat/:setWord", function(req, res) {
       
   res.send('');
 });
-
+ 
 app.get("/chat/del/:delWord", function(req, res) {
   console.log(req.params.delWord);
   if(scrtWrd.indexOf(req.params.delWord) !== -1)
