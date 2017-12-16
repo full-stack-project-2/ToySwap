@@ -99,17 +99,18 @@ module.exports = function (app) {
 
   });
 
-  app.get("/toy/:toyID/:UserId", function (req, res) {  
+  app.get("/toy/:toyID/:UserId", function (req, res) {
     // grabs the two parameters passed in from the ajax call.. its essential we have a user ID associated with the product we are searching for, or else we wont get back all the user's products		
     let toyID = req.params.toyID;
     let UserId = req.params.UserId;
-    
+
     let query = {
       UserId: UserId,
       id: {
         $not: toyID
       }
     };
+    
     // console.log(query);
     // Here we add an "include" property to our options in our findAll query		
     // We set the value to an array of the models we want to include in a left outer join		
@@ -129,17 +130,32 @@ module.exports = function (app) {
         where: toyQuery,
         include: [db.User]
       }).then(function (selectedToy) {
-        // console.log("selectedToy ----------------------------------------\n" + selectedToy);
-        res.render("products", {
-          inventory: userInventory,
-          toy: selectedToy
+        // Current user in the session along with their information can be found in the req.user object
+        console.log("REQ.USEReeeee " + req.user);
+        let visitorUsername = req.user.username;
+        console.log(visitorUsername);
+        // let swapperQuery = {
+        //   username: req.user.username,
+        //   availability: {
+        //     $gt: 0
+        //   }
+        // }
+        db.Inventory.findAll({
+          // where: swapperQuery,
+        }).then(function (toysToSwap) {
+          res.render("products", {
+            inventory: userInventory,
+            toy: selectedToy
+            // swapables: toysToSwap
+          });
+          // console.log("toys2swap ----------------------------------------\n" + toysToSwap);
         });
       });
     });
   });
 
 
-  // router.get("/", function (req, res) {
+  // // router.get("/", function (req, res) {
   //   burger.all(function (data) {
   //     let hbsObject = {
   //       burgers: data
