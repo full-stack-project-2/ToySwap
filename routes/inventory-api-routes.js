@@ -1,8 +1,6 @@
 var db = require("../models");
 const walmart = require("../walmart_api/data"); //requires the constructor
 const isAuthenticated = require("../config/middleware/authentication");
-const Sequelize = require("sequelize");
-const Op = Sequelize.Op;
 
 // Routes
 // =============================================================
