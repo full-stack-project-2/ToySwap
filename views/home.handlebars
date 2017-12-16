@@ -117,7 +117,7 @@ SVG attempt************************** -->
   
   <div class="parallax-container" id="toy-group">
     <div class="parallax">
-        <img src="assets/img/toy-group.jpg">
+        <img src="../public/assets/img/toy-group.jpg">
     </div>
   </div>  
 
@@ -152,12 +152,10 @@ SVG attempt************************** -->
         </div>
     </div>
 
-<!--
-
     <div class="container">
         <h4 class="center">Upload an Item!</h4>
         <div class="row">
-            <form class="col s12 create-form" method="POST" action="/toys">
+            <form class="col s12 create-form">
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="title" type="text" class="validate" required="" aria-required="true">
@@ -189,18 +187,16 @@ SVG attempt************************** -->
                                 <input type="file">
                             </div>
                             <div class="file-path-wrapper">
-                                <input id="url" class="file-path validate" required="" aria-required="true" type="text">>
+                                <input id="url" class="file-path validate" required="" aria-required="true" type="text">
                                 <label class="description-label" for="description">Image URL</label>
                             </div>
                         </div>
                     </form>
-
-
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12 center">
-                        <button class="btn waves-effect waves-light deep-purple lighten-1" type="submit" name="action">Submit</button>
+                        <button class="btn waves-effect waves-light deep-purple lighten-1" id="newToy" type="submit" name="action">Submit</button>
                     </div>
                 </div>
 
@@ -209,7 +205,7 @@ SVG attempt************************** -->
         </div>
     </div>
     
-    -->
+
     <footer class="page-footer">
         <div class="container">
             <div class="row">
@@ -261,6 +257,8 @@ SVG attempt************************** -->
     {{!-- <script src="assets/js/toyswap.js"></script> --}}
     {{!-- <script src="assets/js/init.js"></script> --}}
     {{!-- <script src="assets/js/materialize.js"></script> --}}
+     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="/assets/js/home.js"></script>
+    
     <div class="hiddendiv common"></div>
     <div class="drag-target" data-sidenav="nav-mobile" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div>

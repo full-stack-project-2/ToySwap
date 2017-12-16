@@ -1,8 +1,10 @@
 {
   "development": {
 
-    "username": "root",
-    "password": "danny486",
+
+    "username": "dariell",
+    "password": "password",
+
     "database": "toyswap",
     "host": "127.0.0.1",
     "dialect": "mysql"

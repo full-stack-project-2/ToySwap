@@ -1,12 +1,12 @@
 $(document).ready(function () {
-
-
-
-    // The code handles what happens when the user clicks the "submit a book" button.
+    // $.get("/home-swap", function (data) {		
+    //              // todos = data;		
+    // });		
 
     // When user submits the form to make a new toy
-    $(".create-form").on("submit", function (event) {
+    $("#newToy").on("click", function (event) {
         event.preventDefault();
+        alert("Hello");
         console.log("submitted");
         // Make a newToy object
         let newToy = {
@@ -17,13 +17,10 @@ $(document).ready(function () {
             url: $("#url").val().trim(),
             description: $("#description").val().trim()
         };
+        console.log(newToy);
         // Send an AJAX POST-request with jQuery
         $.post("/toys", newToy).done(function (data) {
-            // $.get("/", function (data) {
-            //     // todos = data;
-            // });
-            // console.log("CONGRATS, you just uploaded your product!");
-            window.location.replace("/toys");
+            window.location.replace("/home");
         });
         // On success, run the following code
 
@@ -37,19 +34,19 @@ $(document).ready(function () {
     });
 })
 	
-     $(".view").on("click", function(){		
-         let toyId = this.id.split("-")[1];		
-         let userId = this.id.split("-")[2];		
-         console.log(toyId);		
-         console.log(userId);		
-         $.get("/toys/" + toyId + "/" + userId).done(function (data) {		
-             // $.get("/", function (data) {		
-             //     // todos = data;		
-             // });		
-             // console.log("CONGRATS, you just uploaded your product!");		
-             // console.log(data)		
-             // window.location.replace("/toys");		
-         });		
+    //  $(".view").on("click", function(){		
+    //      let toyId = this.id.split("-")[1];		
+    //      let userId = this.id.split("-")[2];		
+    //      console.log(toyId);		
+    //      console.log(userId);		
+    //      $.get("/toys/" + toyId + "/" + userId).done(function (data) {		
+    //          // $.get("/", function (data) {		
+    //          //     // todos = data;		
+    //          // });		
+    //          // console.log("CONGRATS, you just uploaded your product!");		
+    //          // console.log(data)		
+    //          // window.location.replace("/toys");		
+    //      });		
  		
-         alert(this.id);		
-     })//*/
+    //      alert(this.id);		
+    //  })//*/
