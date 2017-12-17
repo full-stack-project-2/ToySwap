@@ -1,3 +1,62 @@
+  <!-- Modal Structure -->
+  <div id="newToyUpload" class="modal">
+    <div class="modal-content">
+          <div class="container">
+        <h4 class="center">Upload an Item!</h4>
+        <div class="row">
+            <form class="col s12 create-form">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="title" type="text" class="validate" required="" aria-required="true">
+                        <label class="home-label" for="title">Title</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="product_condition" name="example" type="text" class="validate" required="" aria-required="true">
+                        <label class="home-label" for="condition">Condition</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="availability" name="example" type="number" class="validate" required="" aria-required="true">
+                        <label class="home-label" for="quantity">Quantity</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="price" name="example" type="number" class="validate" required="" aria-required="true">
+                        <label class="home-label" for="price">Retail Price</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <textarea id="description" class="materialize-textarea validate" name="example" type="text" required="" aria-required="true"></textarea>
+                        <label class="home-label" for="description">Description</label>
+                    </div>
+
+                    <form action="#">
+                        <div class="file-field input-field col s6">
+                            <div class="btn-floating btn-small waves-effect waves-light red lighten-1">
+                                <i class="material-icons">add</i>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input id="url" class="file-path validate" required="" aria-required="true" type="text">
+                                <label class="description-label" for="description">Image URL</label>
+                            </div>
+                        </div>
+                    </form>
+                    <button id="newToy" class="btn btn-large modal-action modal-close waves-effect waves-red btn-flat">Submit New Toy</button>
+                    <button class="btn btn-large modal-action modal-close waves-effect waves-red btn-flat">CLOSE</button>
+                </div>
+
+
+                {{!-- <div class="row">
+                    <div class="input-field col s12 center">
+                        <button class="btn waves-effect waves-light red lighten-1" id="newToy" type="submit" name="action">Submit</button>
+                    </div>
+                </div> --}}
+
+
+            </form>
+        </div>
+    </div>
+    </div>
+  </div>
+
 <div id="nav">
     <div class="navbar-fixed">
         <nav class="red lighten-1 loaded" role="navigation">
@@ -16,7 +75,9 @@
                     <li>
                         <a href="/login">Login</a>
                     </li>
-                    
+                    <li>
+                        <a class="modal-trigger" href="#newToyUpload">Upload</a>
+                    </li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
                     <li>
@@ -25,6 +86,7 @@
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse">
                     <i class="material-icons">menu</i>
+                    
                 </a>
             </div>
         </nav>
@@ -184,3 +246,62 @@
 <div class="drag-target" data-sidenav="nav-mobile" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); left: 0px;"></div>
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="assets/js/list.js"></script>
+
+
+
+
+          
+
+    {{!-- <div class="container">
+        <h4 class="center">Upload an Item!</h4>
+        <div class="row">
+            <form class="col s12 create-form">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="title" type="text" class="validate" required="" aria-required="true">
+                        <label class="home-label" for="title">Title</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="product_condition" name="example" type="text" class="validate" required="" aria-required="true">
+                        <label class="home-label" for="condition">Condition</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="availability" name="example" type="number" class="validate" required="" aria-required="true">
+                        <label class="home-label" for="quantity">Quantity</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="price" name="example" type="number" class="validate" required="" aria-required="true">
+                        <label class="home-label" for="price">Retail Price</label>
+                    </div>
+
+
+                    <div class="input-field col s6">
+                        <textarea id="description" class="materialize-textarea validate" name="example" type="text" required="" aria-required="true"></textarea>
+                        <label class="home-label" for="description">Description</label>
+                    </div>
+
+                    <form action="#">
+                        <div class="file-field input-field col s6">
+                            <div class="btn-floating btn-small waves-effect waves-light red lighten-1">
+                                <i class="material-icons">add</i>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input id="url" class="file-path validate" required="" aria-required="true" type="text">
+                                <label class="description-label" for="description">Image URL</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                {{!-- <div class="row">
+                    <div class="input-field col s12 center">
+                        <button class="btn waves-effect waves-light red lighten-1" id="newToy" type="submit" name="action">Submit</button>
+                    </div>
+                </div> --}}
+
+
+            </form>
+        </div>
+    </div> --}}
