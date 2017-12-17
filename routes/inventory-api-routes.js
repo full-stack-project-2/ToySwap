@@ -138,7 +138,6 @@ module.exports = function (app) {
       include: [db.User]
     }).then(function (selectedToy) {
       // Current user in the session along with their information can be found in the req.user object
-      // console.log("REQ.USEReeeee " + req.user);
       let visitorId = req.user.id;
       // console.log(visitorUsername);
       let swapQuery = {
