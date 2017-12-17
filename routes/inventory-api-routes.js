@@ -7,31 +7,37 @@ const isAuthenticated = require("../config/middleware/authentication");
 module.exports = function (app) {
   // This is were the initial data from the walmart API gets stored into the DB
 
-  let result = ''; //declare a global empty variable.
-  let runner = new walmart(); //creates a new object
-  let callbackFnc = function (data) { //callback function to fetch data
-    result = data;
-    result.forEach(function (toy) {
-      db.Inventory.create({
-        title: toy.name,
-        product_condition: "New",
-        availability: 40,
-        price: toy.price,
-        url: toy.image,
-        description: toy.description,
-        UserId: 1
-      }).then(function (dbToys) {});
-    })
 
-  };
-  // runner.getToyData(callbackFnc);
-  runner.getToyData(callbackFnc);
 
+  db.Inventory.findAll({}).then(function (dataset) {
+    // Only insert's walmart dataset if the table was dropped or theres less no inventory, that way it's the first to go in and only happens once.
+    if (dataset.length === 0) {
+      let result = ''; //declare a global empty variable.
+      let runner = new walmart(); //creates a new object
+      let callbackFnc = function (data) { //callback function to fetch data
+        result = data;
+        result.forEach(function (toy) {
+          db.Inventory.create({
+            title: toy.name,
+            product_condition: "New",
+            availability: 40,
+            price: toy.price,
+            url: toy.image,
+            description: toy.description,
+            UserId: 1
+          }).then(function (dbToys) {});
+        })
+
+      };
+      // runner.getToyData(callbackFnc);
+      runner.getToyData(callbackFnc);
+    }
+  });
 
 
   app.get("/home-swap", isAuthenticated, function (req, res) {
     let query = {
-      sellerId : req.user.id
+      sellerId: req.user.id
     }
     db.Swaps.findAll({
       where: query
@@ -40,8 +46,7 @@ module.exports = function (app) {
         res.render("activity", {
           inventory: dbInventory
         });
-      }
-      else {
+      } else {
         res.render("list");
       }
     });
@@ -124,35 +129,35 @@ module.exports = function (app) {
     //     $not: toyID
     //   }
     // }).then(function (userInventory) {
-      // console.log("DB INVENTORY ----------------------------------------\n" + userInventory);
-      let toyQuery = {
-        id: toyID
+    // console.log("DB INVENTORY ----------------------------------------\n" + userInventory);
+    let toyQuery = {
+      id: toyID
+    }
+    db.Inventory.findAll({
+      where: toyQuery,
+      include: [db.User]
+    }).then(function (selectedToy) {
+      // Current user in the session along with their information can be found in the req.user object
+      // console.log("REQ.USEReeeee " + req.user);
+      let visitorId = req.user.id;
+      // console.log(visitorUsername);
+      let swapQuery = {
+        UserId: visitorId,
+        availability: {
+          $gt: 0
+        }
       }
       db.Inventory.findAll({
-        where: toyQuery,
+        where: swapQuery,
         include: [db.User]
-      }).then(function (selectedToy) {
-        // Current user in the session along with their information can be found in the req.user object
-        // console.log("REQ.USEReeeee " + req.user);
-        let visitorId = req.user.id;
-        // console.log(visitorUsername);
-        let swapQuery = {
-          UserId: visitorId,
-          availability: {
-            $gt: 0
-          }
-        }
-        db.Inventory.findAll({
-          where: swapQuery,
-          include: [db.User]
-        }).then(function (toysToSwap) {
-          res.render("products", {
-            // inventory: userInventory,
-            toy: selectedToy,
-            swapables: toysToSwap
-          });
+      }).then(function (toysToSwap) {
+        res.render("products", {
+          // inventory: userInventory,
+          toy: selectedToy,
+          swapables: toysToSwap
         });
       });
+    });
     // });
   });
 

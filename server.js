@@ -61,13 +61,19 @@ require("./routes/inventory-api-routes")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force:false}).then(function() {
   let server = app.listen(PORT, function() {
-    db.User.create({
-      email: "walmart@walmart.com",
-      username: "Walmart",
-      password: "Walmart",
-    }).then(function (walmart) {
+    db.User.findAll({}).then(function(users){
+      // Only insert's walmart into DB if the table was dropped, that way it's the first to go in and only happens once.
+      if(users.length === 0){
+        db.User.create({
+          email: "walmart@walmart.com",
+          username: "Walmart",
+          password: "Walmart",
+        })
+        .then(function (walmart) {
+        });
+      }
     });
     console.log("App listening on PORT " + PORT);
   });
