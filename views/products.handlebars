@@ -61,7 +61,7 @@
                                 
                                 <div class="d-inline-block ml-2">
                                     <div class="text-right" style="font-size: 12px; color: red" > {{product_condition}}</div>
-                                    <div class="text-left" style="font-size: 25px; font-weight: 700"> {{price}}</div>
+                                    <div class="text-left" style="font-size: 25px; font-weight: 700">${{price}}</div>
             
                                     
                                     <div class="right-align" style="font-size: 15px">
@@ -160,10 +160,11 @@
                     <div id="topDiv">
                         <div id="msgDiv" class="m4 m3 p1 m1 text-left"></div>
                     </div>
-                    <div id="bottDiv"></div>
+                    <div id="bottDiv">
+
+                    </div>
 
                 </div>
-                <div id="bottDiv"></div>
             </div>
         </div>
     </div>
@@ -172,7 +173,7 @@
 {{/each}}
 
 <!-- Modal Trigger -->
-<button data-target="swap" id="swap-{{id}}" class="btn-large btn-floating modal-trigger">Swap</button>
+<button data-target="swap" id="swap-{{id}}" class="btn-large modal-trigger waves col s12 red lighten-1" style="margin:1em;width:50%">Swap Me!</button>
 {{!-- <h5>Click below to swap</h5>
 <a href="#swap" data-target="swap" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a> --}}
 <!-- Modal Structure -->
@@ -184,11 +185,7 @@
         <div class="col s6" style=" border-radius: 5px; width: 230px">
             <div class="item-container">
                 <div class="item-pic">
-
-                    {{!-- <a href="/toy/{{id}}/{{UserId}}" class="opa-hover"> --}}
                         <img class="vertical-middle" id="{{username}}" width="200" height="160" src="{{url}}" alt="{{title}}" style="margin-top: 10px">
-                    {{!-- </a> --}}
-                    
                 </div>
 
                 <a class="btn-floating btn-large waves-effect waves-light red swapMe" id="swap-{{id}}"><i class="material-icons">add</i></a>
@@ -201,6 +198,7 @@
                 <a href="#swap" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
             </div>
         </div>
+    </div>
 
         <!-- Modal -->
         {{!--
