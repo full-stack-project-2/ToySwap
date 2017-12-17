@@ -188,18 +188,28 @@ module.exports = function (app) {
   // } FOR DEBUGGING SENDING USERS A CUSTOM 404 PAGE
 
   // post request for uploading new toy to DB
-  app.post("/toys", function (req, res) {
+  app.post("/toys", isAuthenticated, function (req, res) {
+    if (req.user) {
+      db.Inventory.create({
+        title: req.body.title,
+        product_condition: req.body.product_condition,
+        availability: req.body.availability,
+        price: req.body.price,
+        url: req.body.url,
+        description: req.body.description,
+        UserId: req.user.id
+      }).then(function (dbToys) {
+        res.redirect("/");
+      });
+    }
+    else if(!req.user) {
+      let message = {
+        message: "You need to be logged in to enter a toy!"
+      }
+      console.log(message);
+    }
     // console.log(req.body);
-    db.Inventory.create({
-      title: req.body.title,
-      product_condition: req.body.product_condition,
-      availability: req.body.availability,
-      price: req.body.price,
-      url: req.body.url,
-      description: req.body.description
-    }).then(function (dbToys) {
-      res.redirect("/");
-    });
+
   });
 
 

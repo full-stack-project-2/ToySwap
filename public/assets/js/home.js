@@ -4,10 +4,8 @@ $(document).ready(function () {
     // });		
 
     // When user submits the form to make a new toy
-    $("#newToy").on("click", function (event) {
+    $("#newToy").on("click", function() {
         event.preventDefault();
-        alert("Hello");
-        console.log("submitted");
         // Make a newToy object
         let newToy = {
             title: $("#title").val().trim(),
@@ -20,6 +18,7 @@ $(document).ready(function () {
         console.log(newToy);
         // Send an AJAX POST-request with jQuery
         $.post("/toys", newToy).done(function (data) {
+            console.log(data);
             window.location.replace("/home");
         });
         // On success, run the following code
