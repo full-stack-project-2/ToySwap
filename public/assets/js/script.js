@@ -60,7 +60,7 @@ $(document).ready(function () {
 
     productId = $('#itemsInfo').attr('attrId');
     userId = $('#itemsInfo').attr('attrUser');
-    
+
     $.get("/user/ownerGetUserName/" + userId, function (data) {
       otherUserName = data.username;
     }).then(function () {
@@ -106,11 +106,13 @@ $(document).ready(function () {
   function submitBtn() {
     let inputText = $("#txtBox").val().trim();
 
-    if (socket && inputText && otherUserName)
+    if (socket && inputText && otherUserName){
       socket.emit(otherUserName, {
         user: currentUser,
         message: inputText
       });
+      $("#txtBox").val() = '';
+    }
 
   } //ends submitBtn()
 
