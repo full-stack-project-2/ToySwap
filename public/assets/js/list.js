@@ -1,13 +1,13 @@
-$(document).ready(function(){
+$(document).ready(function () {
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
     $('#newToyUpload').modal();
-        // $.get("/home-swap", function (data) {		
+    // $.get("/home-swap", function (data) {		
     //              // todos = data;		
     // });		
 
     // When user submits the form to make a new toy
-    $("#newToy").on("click", function() {
+    $("#newToy").on("click", function () {
         event.preventDefault();
         // Make a newToy object
         let newToy = {
@@ -31,5 +31,13 @@ $(document).ready(function(){
         $("#url").val("");
         $("#description").val("");
     });
-  });
-          
+
+    $("#get-swaps").on("click", function () {
+        $.get("/swaps").done(function (data) {
+
+
+
+
+        });
+    });
+});
