@@ -177,6 +177,23 @@ module.exports = function (app) {
   });
 
 
+  app.get("/activity", function (req, res) {
+    let swapsQuery = {
+      sellerId: req.user.id
+    }
+    db.Swaps.findAll({
+      where: swapsQuery
+    }).then(function (dbSwaps) {
+      console.log(dbSwaps);
+      res.render("activity", {
+        mySwaps: dbSwaps
+      });
+    });
+  });
+
+
+
+
 
   //   .findAll({
   //     //attributes: ['id'] //select fields
@@ -207,7 +224,6 @@ module.exports = function (app) {
       }
       console.log(message);
     }
-    // console.log(req.body);
 
   });
 
