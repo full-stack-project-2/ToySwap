@@ -31,13 +31,4 @@ $(document).ready(function () {
         $("#url").val("");
         $("#description").val("");
     });
-
-    $("#get-swaps").on("click", function () {
-        $.get("/swaps").done(function (data) {
-
-
-
-
-        });
-    });
 });
