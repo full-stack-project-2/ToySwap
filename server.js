@@ -41,7 +41,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Creating express app and configuring middleware needed for authentication
 // We need to use sessions to keep track of our user's login status
 //passport middleware methods
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true}));
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 //flash is used to show a message on an incorrect login
