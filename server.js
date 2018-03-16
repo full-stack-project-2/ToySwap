@@ -81,7 +81,6 @@ db.sequelize.sync({ force:false}).then(function() {
   const io = socket(server);
 
   io.on('connection', function (socket) { 
-    console.log('Socket connection with id = ' + socket.id);
     for(let i = 0; i < scrtWrd.length; i++)
         socket.on(scrtWrd[i], function (data) {
           console.log(scrtWrd);
@@ -94,7 +93,6 @@ db.sequelize.sync({ force:false}).then(function() {
 });  
 
 app.get("/chat/:setWord", function(req, res) {
-  console.log(req.params.setWord);
   if(scrtWrd.indexOf(req.params.setWord) === -1)
       scrtWrd.push(req.params.setWord);
       
@@ -102,7 +100,6 @@ app.get("/chat/:setWord", function(req, res) {
 });
  
 app.get("/chat/del/:delWord", function(req, res) {
-  console.log(req.params.delWord);
   if(scrtWrd.indexOf(req.params.delWord) !== -1)
       scrtWrd = scrtWrd.filter(e => e !== req.params.delWord);
       
