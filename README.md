@@ -1,6 +1,12 @@
 # ToySwap
+
+
+<img src="https://res.cloudinary.com/dquez/image/upload/v1521172670/Screen_Shot_2018-03-15_at_11.55.02_PM_ihn5zf.png" />
+
 ToySwap is a full-stack, one-stop shop web application for people who want to get swap their unused toys with new or used ones from other users. There is no payment required to use ToySwap, we only require that you create an account so that you can navigate throughout our toy listings. In order to swap with another user, you need to have at least one toy of your own saved in our database, which you can upload after you've logged in. When you offer a toy to swap, the owner of the other toy has the option to confirm or deny your request. If they decide they want to swap theirs with yours, you both can say hello to your brand ~~new~~ used toys! This app works great with video game owners who are fed up with companies like Gamestop paying **a third of the price or less** when you want to trade your game in.
 
+![ToySwap](https://media.giphy.com/media/4ZknBfzt78RHuBgOrS/giphy.gif)
+![ToySwap](https://media.giphy.com/media/3gPQ2PSfTSJin9JnNb/giphy.gif)
 ### [ToySwap](https://toyswap0808.herokuapp.com/) deployed on heroku
 
 ## Getting Started
